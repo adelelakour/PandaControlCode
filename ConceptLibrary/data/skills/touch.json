@@ -1,0 +1,77 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "Object",
+        "touchLocation": "Location"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperTouchesObject": {
+                                    "gripper": "g",
+                                    "object": "o",
+                                    "threshold": 0.05
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Location>": {
+                                    "who": "touchLocation",
+                                    "what": {
+                                        "EntityLocationRelativeTo": {
+                                            "reference": "o",
+                                            "entity": "g"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]],
+    "actionAssociation": [
+        {
+            "PerceiveEnvironment": {
+                "a": "a"
+            }
+        }
+    ]
+}

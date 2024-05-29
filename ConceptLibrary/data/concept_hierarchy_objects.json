@@ -1,0 +1,289 @@
+{
+    "Object": {
+        "direct_parents": ["PhysicalEntity"],
+        "data": {
+            "properties": {
+                "interactionVolume": "Number",
+                "basicShape": "String"
+            }
+        }
+    },
+    "Container": {
+        "direct_parents": ["Object"],
+        "data": {
+            "properties": {
+                "fillDegree": "Number",
+                "content": "IndexContainer<Object>",
+                "contentProportion": "IndexContainer<Number>"
+            }
+        }
+    },
+    "FoodContainer": {
+        "direct_parents": ["Container"],
+        "data": {
+            "properties": {
+                "assumptions": {
+                    "content": ["Food"],
+                    "contentProportion": [1]
+                }
+            }
+        }
+    },
+    "LiquidContainer": {
+        "direct_parents": ["Container"],
+        "data": {
+            "properties": {
+                "assumptions": {
+                    "content": ["Liquid"],
+                    "contentProportion": [1]
+                }
+            }
+        }
+    },
+    "FoodAndLiquidContainer": {
+        "direct_parents": ["FoodContainer", "LiquidContainer"],
+        "data": {
+            "properties": {
+                "assumptions": {
+                    "content": ["Liquid", "Food"],
+                    "contentProportion": [0.5, 0.5]
+                }
+            }
+        }
+    },
+    "Pourer": {
+        "direct_parents": ["Container"],
+        "data": {
+            "properties": {
+                "pourerSurfaces": "IndexContainer<String>"
+            }
+        }
+    },
+    "MovableObject": {
+        "direct_parents": ["Object"]
+    },
+    "SurfaceDefinedObject": {
+        "direct_parents": ["Object"],
+        "data": {
+            "properties": {
+                "definingSurface": "String"
+            }
+        }
+    },
+    "Food": {
+        "direct_parents": ["Object"],
+        "data": {}
+    },
+    "Liquid": {
+        "direct_parents": ["Object"],
+        "data": {}
+    },
+
+    "OpenableObject": {
+        "direct_parents": ["Container"],
+        "data": {
+            "properties": {
+                "openSurfaces": "IndexContainer<String>"
+            }
+        }
+    },
+    "GraspableObject": {
+        "direct_parents": ["MovableObject"],
+        "data": {}
+    },
+
+    "Bowl": {
+        "direct_parents": ["FoodAndLiquidContainer", "Pourer", "GraspableObject"],
+        "data": {}
+    },
+    "Bottle": {
+        "direct_parents": ["LiquidContainer", "Pourer", "GraspableObject", "OpenableObject"],
+        "data": {}
+    },
+    "BottleWithScrewableOpening": {
+        "direct_parents": ["Bottle"],
+        "data": {
+            "properties": {
+                "screwableOpenings": "Sequence<String>"
+            }
+        }
+    },
+    "CerealBox": {
+        "direct_parents": ["FoodContainer", "Pourer", "GraspableObject", "OpenableObject"],
+        "data": {
+            "properties": {
+                "assumptions": {
+                    "content": ["Cereal"],
+                    "contentProportion": [1]
+                }
+            }
+        }
+    },
+    "Cup": {
+        "direct_parents": ["LiquidContainer", "Pourer", "GraspableObject"],
+        "data": {}
+    },
+    "DrinkingMug": {
+        "direct_parents": ["LiquidContainer", "Pourer", "GraspableObject"],
+        "data": {}
+    },
+    "Ground": {
+        "direct_parents": ["SurfaceDefinedObject"],
+        "data": {}
+    },
+    "MilkCarton": {
+        "direct_parents": ["BottleWithScrewableOpening"],
+        "data": {}
+    },
+    "Plate": {
+        "direct_parents": ["FoodContainer", "Container", "GraspableObject"],
+        "data": {}
+    },
+    "TrashCan": {
+        "direct_parents": ["Pourer", "GraspableObject"],
+        "data": {
+            "properties": {
+                "default": {
+                    "content": [],
+                    "contentProportion": []
+                }
+            }
+        }
+    },
+    "Jar": {
+        "direct_parents": ["OpenableObject"],
+        "data": {}
+    },
+
+    "Tool": {
+        "direct_parents": ["Object"],
+        "data": {}
+    },
+    "KitchenUtensil": {
+        "direct_parents": ["Tool"],
+        "data": {}
+    },
+    "Fork": {
+        "direct_parents": ["KitchenUtensil"],
+        "data": {}
+    },
+    "Spoon": {
+        "direct_parents": ["KitchenUtensil"],
+        "data": {}
+    },
+    "Knife": {
+        "direct_parents": ["KitchenUtensil"],
+        "data": {}
+    },
+
+    "Cereal": {
+        "direct_parents": ["Food"],
+        "data": {}
+    },
+    "Fruit": {
+        "direct_parents": ["Food"],
+        "data": {}
+    },
+    "Vegetable": {
+        "direct_parents": ["Food"],
+        "data": {}
+    },
+    "Banana": {
+        "direct_parents": ["Fruit"],
+        "data": {}
+    },
+    "Apple": {
+        "direct_parents": ["Fruit"],
+        "data": {}
+    },
+    "Tomato": {
+        "direct_parents": ["Fruit"],
+        "data": {}
+    },
+    "Potato": {
+        "direct_parents": ["Vegetable"],
+        "data": {}
+    },
+    "Carrot": {
+        "direct_parents": ["Vegetable"],
+        "data": {}
+    },
+    "Water": {
+        "direct_parents": ["Liquid"],
+        "data": {}
+    },
+    "Milk": {
+        "direct_parents": ["Liquid"],
+        "data": {}
+    },
+
+    "Trash": {
+        "direct_parents": ["Container", "OpenableObject"],
+        "data": {
+            "properties": {
+                "expirationDate": "Number"
+            }
+        }
+    },
+
+    "Surface": {
+        "direct_parents": ["PhysicalEntity"],
+        "data": {
+            "properties": {
+                "openness": "Number"
+            }
+        }
+    },
+    "StableSupportingSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "SupporterSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "OpenableSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "PouringSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "PourerSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "BowlSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "CerealBoxSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "CupSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "DrinkingMugSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "GroundSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "MilkCartonSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "PlateSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    },
+    "TrashCanSurface": {
+        "direct_parents": ["Surface"],
+        "data": {}
+    }
+}

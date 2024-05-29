@@ -1,0 +1,1532 @@
+{
+    "ObjectInstance": {
+        "direct_parents": ["Object"]
+    },
+
+    "BowlGreyIkeaInstance": {
+        "direct_parents": ["ObjectInstance", "Bowl"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/bowl.json",
+                "geometryType": "ObjectTagModel",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "grasps": [
+                    {
+                        "points": [
+                            [0.5, -0.5, 0.5, -0.5, 0.059, 0.0065, 0.0065, 0.059],
+                            [0.5, -0.5, 0.5, -0.5, 0.0575, 0.005, 0.005, 0.0575]
+                        ],
+                        "angleRange": [-75, 75]
+                    }
+                ],
+                "shapeSymmetries": [
+                    {
+                        "type": "rotation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [0, 360]
+                    }
+                ],
+                "graspSymmetryCorrelation": [[0, ["s_0"]]],
+
+                "radiusBottom": 0.072,
+                "radiusTop": 0.04,
+                "trunkHeight": 0.064,
+                "axis": [0, 0, 1],
+                "displacementFromModelOrigin": [
+                    [0, 0, 0.064],
+                    ["d", 180, [1, 0, 0]]
+                ],
+                "circular": true
+            },
+            "propertyValues": {
+                "interactionVolume": 0.15,
+                "basicShape": "pyramid trunk",
+                "fillDegree": 0.1,
+                "pourerSurfaces": ["BowlGreyIkeaInstanceTopSurface"],
+                "location": {
+                    "global": [-0.9964558098495766, 0.00953320258191448, 0.008058071623552134, -0.08302139475327987, 0.0005743858171477143, 0.2378436370902367, -0.0782520596002182, 0.012822005614543774],
+                    "pose": [-0.9964558098495766, 0.00953320258191448, 0.008058071623552134, -0.08302139475327987, 0.0005743858171477143, 0.2378436370902367, -0.0782520596002182, 0.012822005614543774],
+                    "rel": "Surface:GroundInstance_GroundSupportSurface"
+                },
+                "instanceName": "BowlGreyIkeaInstance",
+                "lastDetected": "2024-03-21-07-40-23:336465782"
+            },
+            "surfaces": ["BowlGreyIkeaInstanceBottomSurface", "BowlGreyIkeaInstanceTopSurface"]
+        }
+    },
+    "CerealBoxKelloggsMuslixInstance": {
+        "direct_parents": ["ObjectInstance", "CerealBox"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/cereal_box.json",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "grasps": [
+                    {
+                        "points": [
+                            [0.7071067811, -0.7071067811, 0, 0, 0.0046739, 0.0046739, -0.0166079, 0.0426807],
+                            [0.7071067811, -0.7071067811, 0, 0, 0.0046739, 0.0046739, -0.0413566, 0.0179319]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.7071067811, 0.7071067811, 0, 0, -0.0046739, 0.0046739, -0.0138879, -0.0399607],
+                            [0.7071067811, 0.7071067811, 0, 0, -0.0046739, 0.0046739, -0.0386366, -0.015212]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, 0.5, 0.5, 0.0106252, 0.0290614, -0.0125485, 0.0309847],
+                            [0.5, -0.5, 0.5, 0.5, 0.0281252, 0.0115614, -0.0300485, 0.0134847]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, 0.5, 0.5, -0.5, 0.00968859, -0.0281248, -0.00776529, -0.0262015],
+                            [0.5, 0.5, 0.5, -0.5, 0.0271886, -0.0106248, -0.0252653, -0.00870155]
+                        ],
+                        "angleRange": [-75, 75]
+                    }
+                ],
+                "shapeSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.1055, 0.1055]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, 1, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.035, -0.035]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [1, 0, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.1055, 0.1055]
+                    }
+                ],
+                "graspSymmetryCorrelation": [
+                    [0, ["s_2"]],
+                    [1, ["s_2"]],
+                    [2, ["s_0"]],
+                    [3, ["s_0"]]
+                ],
+
+                "dim": [0.196386130896, 0.0574134852032, 0.216619801423],
+                "displacementFromModelOrigin": [
+                    [0.09819, 0.028707, 0.1083099]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.3,
+                "basicShape": "cuboid",
+                "fillDegree": 0.02,
+                "openSurfaces": [],
+                "pourerSurfaces": ["CerealBoxKelloggsMuslixInstanceTopSurface"]
+            },
+            "surfaces": ["CerealBoxKelloggsMuslixInstanceBottomSurface", "CerealBoxKelloggsMuslixInstanceTopSurface", "CerealBoxKelloggsMuslixInstanceFrontSurface", "CerealBoxKelloggsMuslixInstanceBackSurface", "CerealBoxKelloggsMuslixInstanceLeftSurface", "CerealBoxKelloggsMuslixInstanceRightSurface"]
+        }
+    },
+    "CerealBoxVitalisInstance1": {
+        "direct_parents": ["ObjectInstance", "CerealBox"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/cereal_box_vitalis_1.json",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "grasps": [
+                    {
+                        "points": [
+                            [0.7071067811, -0.7071067811, 0, 0, 0.0046739, 0.0046739, -0.0166079, 0.0426807],
+                            [0.7071067811, -0.7071067811, 0, 0, 0.0046739, 0.0046739, -0.0413566, 0.0179319]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.7071067811, 0.7071067811, 0, 0, -0.0046739, 0.0046739, -0.0138879, -0.0399607],
+                            [0.7071067811, 0.7071067811, 0, 0, -0.0046739, 0.0046739, -0.0386366, -0.015212]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, 0.5, 0.5, 0.0106252, 0.0290614, -0.0125485, 0.0309847],
+                            [0.5, -0.5, 0.5, 0.5, 0.0281252, 0.0115614, -0.0300485, 0.0134847]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, 0.5, 0.5, -0.5, 0.00968859, -0.0281248, -0.00776529, -0.0262015],
+                            [0.5, 0.5, 0.5, -0.5, 0.0271886, -0.0106248, -0.0252653, -0.00870155]
+                        ],
+                        "angleRange": [-75, 75]
+                    }
+                ],
+                "shapeSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.1055, 0.1055]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, 1, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.035, -0.035]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [1, 0, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.1055, 0.1055]
+                    }
+                ],
+                "graspSymmetryCorrelation": [
+                    [0, ["s_2"]],
+                    [1, ["s_2"]],
+                    [2, ["s_0"]],
+                    [3, ["s_0"]]
+                ],
+
+                "dim": [0.15313526052225146, 0.0631925651531371, 0.2268515058326232],
+                "displacementFromModelOrigin": [
+                    [0.07656763, 0.03159628, 0.11342575]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.3,
+                "basicShape": "cuboid",
+                "fillDegree": 0.87,
+                "openSurfaces": [],
+                "pourerSurfaces": ["CerealBoxVitalisInstanceTopSurface"],
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0],
+                    "rel": "Surface:GroundInstance_GroundSupportSurface"
+                },
+                "instanceName": "CerealBoxVitalisInstance1",
+                "lastDetected": "2024-03-19-12-12-10:304490802"
+            },
+            "surfaces": ["CerealBoxVitalisInstanceBottomSurface", "CerealBoxVitalisInstanceTopSurface", "CerealBoxVitalisInstanceFrontSurface", "CerealBoxVitalisInstanceBackSurface", "CerealBoxVitalisInstanceLeftSurface", "CerealBoxVitalisInstanceRightSurface"]
+        }
+    },
+    "DrinkingMugTUM-MPIInstance": {
+        "direct_parents": ["ObjectInstance", "DrinkingMug"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/drinking_mug.json",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "shapeSymmetries": [
+                    {
+                        "type": "rotation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [0, 360]
+                    }
+                ],
+
+                "axis": [0, 0, 1],
+                "height": 0.097,
+                "radius": 0.0425,
+                "displacementFromModelOrigin": [
+                    [0, 0, 0.0485]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.15,
+                "basicShape": "cylinder",
+                "fillDegree": 0.05,
+                "pourerSurfaces": ["DrinkingMugTUM-MPIInstanceTopSurface"],
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.2, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.2, 0.0],
+                    "rel": "Surface:GroundInstance_GroundSupportSurface"
+                },
+                "instanceName": "DrinkingMugTUM-MPIInstance",
+                "lastDetected": "2024-03-19-12-12-10:303308873"
+            },
+            "surfaces": ["DrinkingMugTUM-MPIInstanceBottomSurface", "DrinkingMugTUM-MPIInstanceTopSurface"]
+        }
+    },
+    "GroundInstance": {
+        "direct_parents": ["ObjectInstance", "Ground"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/ground.json",
+
+                "axis": [0, 0, 1],
+                "displacementFromModelOrigin": []
+            },
+            "propertyValues": {
+                "interactionVolume": 0.01,
+                "basicShape": "plane",
+                "definingSurface": "GroundInstance_GroundSupportSurface",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "World:"
+                },
+                "instanceName": "GroundInstance",
+                "lastDetected": "2024-03-21-07-40-23:336473222"
+            },
+            "surfaces": ["GroundSupportSurface"]
+        }
+    },
+    "MilkCartonLidlInstance": {
+        "direct_parents": ["ObjectInstance", "MilkCarton"],
+        "data": {
+            "surfaces": [
+                "MilkCartonLidlInstanceBottomSurface",
+                "MilkCartonLidlInstanceTopBackSurface",
+                "MilkCartonLidlInstanceTopPourSurface",
+                "MilkCartonLidlInstanceFrontSurface",
+                "MilkCartonLidlInstanceBackSurface",
+                "MilkCartonLidlInstanceLeftSurface",
+                "MilkCartonLidlInstanceRightSurface"
+            ]
+        }
+    },
+    "MilkCartonLidlInstance1": {
+        "direct_parents": ["MilkCartonLidlInstance"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/milk_carton_3.json",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "grasps": [
+                    {
+                        "points": [
+                            [0, -0.707107, 0, -0.707107, 0.0233996, -0.00108067, 0.0274365, 0.00108067],
+                            [0, -0.707107, 0, -0.707107, -0.0154913, -0.00108067, -0.0114543, 0.00108067]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.707107, 0, 0.707107, 0, 0.016597, 0.0274365, -0.016597, 0.0233996],
+                            [0.707107, 0, 0.707107, 0, 0.016597, -0.0114543, -0.016597, -0.0154913]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, 0.5, 0.5, 0.00613643, 0.0201647, -0.00328185, 0.0173101],
+                            [0.5, -0.5, 0.5, 0.5, 0.0311365, -0.00483527, -0.0282818, -0.00768987]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, -0.5, -0.5, 0.00231011, -0.0117182, 0.0051647, 0.00886358],
+                            [0.5, -0.5, -0.5, -0.5, -0.0226899, 0.0132818, -0.0198353, -0.0161364]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.653281, -0.270598, 0.653282, -0.270598, 0.0355085, 0, -0.0160543, 0.0469743],
+                            [0.653281, -0.270598, 0.653282, -0.270598, 0.0219786, -0.032672, -0.0295842, 0.0143102]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [-0.270598, 0.653282, -0.270598, 0.653281, -0.0535887, 0, 0.00662227, -0.01954],
+                            [-0.270598, 0.653282, -0.270598, 0.653281, -0.0209246, 0.0136158, 0.0392863, -0.00601011]
+                        ],
+                        "angleRange": [-75, 75]
+                    }
+                ],
+                "shapeSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [1, 0, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.055, 0.055]
+                    }
+                ],
+                "graspSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.09, 0.095]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, 1, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.03, 0.03]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, -1, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.03, 0.03]
+                    }
+                ],
+                "graspSymmetryCorrelation": [
+                    [0, ["g_0"]],
+                    [1, ["g_0"]],
+                    [2, ["g_0"]],
+                    [3, ["g_0"]],
+                    [4, ["g_1"]],
+                    [5, ["g_2"]]
+                ],
+
+                "dim": [0.07797097984422532, 0.07754953566505492, 0.211157699661],
+                "displacementFromModelOrigin": [
+                    [0.03898549, 0.03877477, 0.10557885]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.3,
+                "basicShape": "cuboid",
+                "fillDegree": 0.9,
+                "openSurfaces": [],
+                "pourerSurfaces": ["MilkCartonLidlInstanceTopPourSurface"],
+                "location": {
+                    "global": [0.9877383256916157, -0.00839655971489034, 0.0017811848464835967, 0.1558818594849818, 0.00016220559859848882, -0.13993738605126607, 0.0344631915435768, -0.008959314597963342],
+                    "pose": [0.9877383256916157, -0.00839655971489034, 0.0017811848464835967, 0.1558818594849818, 0.00016220559859848882, -0.13993738605126607, 0.0344631915435768, -0.008959314597963342],
+                    "rel": "Surface:GroundInstance_GroundSupportSurface"
+                },
+                "screwableOpenings": ["MilkCartonLidlInstanceTopPourSurface"],
+                "instanceName": "MilkCartonLidlInstance1",
+                "lastDetected": "2024-03-21-07-40-23:336477278"
+            }
+        }
+    },
+    "MilkCartonLidlInstanceLost": {
+        "direct_parents": ["MilkCartonLidlInstance"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/milk_carton.json",
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "grasps": [
+                    {
+                        "points": [
+                            [0, -0.707107, 0, -0.707107, 0.0233996, -0.00108067, 0.0274365, 0.00108067],
+                            [0, -0.707107, 0, -0.707107, -0.0154913, -0.00108067, -0.0114543, 0.00108067]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.707107, 0, 0.707107, 0, 0.016597, 0.0274365, -0.016597, 0.0233996],
+                            [0.707107, 0, 0.707107, 0, 0.016597, -0.0114543, -0.016597, -0.0154913]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, 0.5, 0.5, 0.00613643, 0.0201647, -0.00328185, 0.0173101],
+                            [0.5, -0.5, 0.5, 0.5, 0.0311365, -0.00483527, -0.0282818, -0.00768987]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.5, -0.5, -0.5, -0.5, 0.00231011, -0.0117182, 0.0051647, 0.00886358],
+                            [0.5, -0.5, -0.5, -0.5, -0.0226899, 0.0132818, -0.0198353, -0.0161364]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [0.653281, -0.270598, 0.653282, -0.270598, 0.0355085, 0, -0.0160543, 0.0469743],
+                            [0.653281, -0.270598, 0.653282, -0.270598, 0.0219786, -0.032672, -0.0295842, 0.0143102]
+                        ],
+                        "angleRange": [-75, 75]
+                    },
+                    {
+                        "points": [
+                            [-0.270598, 0.653282, -0.270598, 0.653281, -0.0535887, 0, 0.00662227, -0.01954],
+                            [-0.270598, 0.653282, -0.270598, 0.653281, -0.0209246, 0.0136158, 0.0392863, -0.00601011]
+                        ],
+                        "angleRange": [-75, 75]
+                    }
+                ],
+                "shapeSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [1, 0, 0],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.055, 0.055]
+                    }
+                ],
+                "graspSymmetries": [
+                    {
+                        "type": "translation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.09, 0.095]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, 1, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.03, 0.03]
+                    },
+                    {
+                        "type": "translation",
+                        "axis": [0, -1, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [-0.03, 0.03]
+                    }
+                ],
+                "graspSymmetryCorrelation": [
+                    [0, ["g_0"]],
+                    [1, ["g_0"]],
+                    [2, ["g_0"]],
+                    [3, ["g_0"]],
+                    [4, ["g_1"]],
+                    [5, ["g_2"]]
+                ],
+
+                "dim": [0.0746565596458, 0.0684128979218, 0.193157699661],
+                "displacementFromModelOrigin": [
+                    [0.03732828, 0.03420645, 0.09657885]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.3,
+                "basicShape": "cuboid",
+                "fillDegree": 0.04,
+                "openSurfaces": [],
+                "pourerSurfaces": ["MilkCartonLidlInstanceTopPourSurface"]
+            }
+        }
+    },
+    "TrashCanMirmiInstance": {
+        "direct_parents": ["ObjectInstance", "TrashCan"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/trash_can.json",
+
+                "dim": [0.226396009222, 0.28320950702, 0.158589280075],
+                "displacementFromModelOrigin": [
+                    [0.11319799999999999, 0.14160475, 0.07929464]
+                ]
+            },
+            "propertyValues": {
+                "interactionVolume": 0.5,
+                "basicShape": "cuboid",
+                "fillDegree": 0.2,
+                "openSurfaces": ["TrashCanMirmiInstanceTopSurface"],
+                "pourerSurfaces": ["TrashCanMirmiInstanceTopSurface"]
+            },
+            "surfaces": ["TrashCanMirmiInstanceBottomSurface", "TrashCanMirmiInstanceTopSurface", "TrashCanMirmiInstanceFrontSurface", "TrashCanMirmiInstanceBackSurface", "TrashCanMirmiInstanceLeftSurface", "TrashCanMirmiInstanceRightSurface"]
+        }
+    },
+    "PlasticCupInstance": {
+        "direct_parents": ["ObjectInstance", "Cup"],
+        "data": {
+            "surfaces": ["PlasticCupInstanceBottomSurface", "PlasticCupInstanceTopSurface"],
+            "geometryData": {
+                "radiusBottom": 0.035,
+                "radiusTop": 0.0225,
+                "trunkHeight": 0.096,
+                "axis": [0, 0, 1],
+                "displacementFromModelOrigin": [
+                    [0, 0, 0.096],
+                    ["d", 180, [1, 0, 0]]
+                ],
+                "circular": true
+            },
+            "propertyValues": {
+                "basicShape": "pyramid trunk"
+            }
+        }
+    },
+    "PlasticCupInstance1": {
+        "direct_parents": ["PlasticCupInstance"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/plastic_cup_1.json"
+            },
+            "propertyValues": {
+                "interactionVolume": 0.1,
+                "fillDegree": 0.96,
+                "pourerSurfaces": ["PlasticCupInstanceTopSurface"],
+                "instanceName": "PlasticCupInstance1",
+                "lastDetected": "2024-03-19-12-12-10:304841184",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.54, 0.0175, 0.115],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0017161848694371429, 0.0017018587117157216, 0.0015742470836884043],
+                    "rel": "Surface:CerealBoxVitalisInstance1_CerealBoxVitalisInstanceTopSurface"
+                }
+            }
+        }
+    },
+    "PlasticCupInstance2": {
+        "direct_parents": ["PlasticCupInstance", "Trash"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/plastic_cup_2.json"
+            },
+            "propertyValues": {
+                "interactionVolume": 0.1,
+                "fillDegree": 0.65,
+                "pourerSurfaces": ["PlasticCupInstanceTopSurface"]
+            }
+        }
+    },
+    "PlasticCupPaperInstance": {
+        "direct_parents": ["PlasticCupInstance"],
+        "data": {
+            "geometryData": {
+                "radiusBottom": 0.035,
+                "radiusTop": 0.0225,
+                "trunkHeight": 0.096,
+                "axis": [0, 0, 1],
+                "displacementFromModelOrigin": [
+                    [0, 0, 0.096],
+                    ["d", 180, [1, 0, 0]]
+                ],
+                "circular": true
+            },
+            "propertyValues": {
+                "basicShape": "cylinder"
+            }
+        }
+    },
+    "PlasticCupPaperInstance1": {
+        "direct_parents": ["PlasticCupPaperInstance"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/plastic_cup_1.json"
+            },
+            "propertyValues": {
+                "basicShape": "pyramid trunk",
+                "interactionVolume": 0.1,
+                "fillDegree": 0.65,
+                "pourerSurfaces": ["PlasticCupInstanceTopSurface"]
+            }
+        }
+    },
+    "PlasticPlateInstance1": {
+        "direct_parents": ["ObjectInstance", "Plate"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/plastic_plate_1.json",
+
+                "radiusBottom": 0.113,
+                "radiusTop": 0.07,
+                "trunkHeight": 0.019,
+                "axis": [0, 0, 1],
+                "displacementFromModelOrigin": [
+                    [0, 0, 0.016],
+                    ["d", 180, [1, 0, 0]]
+                ],
+                "circular": true
+            },
+            "propertyValues": {
+                "interactionVolume": 0.1,
+                "basicShape": "pyramid trunk",
+                "fillDegree": 0.07
+            },
+            "surfaces": ["PlasticPlateInstanceBottomSurface", "PlasticPlateInstanceTopSurface"]
+        }
+    },
+    "WaterBottleInstance": {
+        "direct_parents": ["ObjectInstance", "Bottle"],
+        "data": {
+            "geometryData": {
+                "geometryFile": "../../PerceptionData/data/plastic_plate_1.json",
+                "TODO update with correct geometryFile": "TODO: UPDATE ABOVE!!",
+
+                "visionOriginRelativeToGraspOrigin": [1, 0, 0, 0, 0, 0, 0, 0],
+                "shapeSymmetries": [
+                    {
+                        "type": "rotation",
+                        "axis": [0, 0, 1],
+                        "axisDisplacementFromOrigin": [0, 0, 0],
+                        "range": [0, 360]
+                    }
+                ],
+
+                "axis": [0, 0, 1],
+                "height": 0.22,
+                "radius": 0.06,
+                "displacementFromModelOrigin": [0, 0, 0.06]
+            },
+            "propertyValues": {
+                "basicShape": "cylinder",
+                "instanceName": "WaterBottleInstance",
+                "lastDetected": "2024-03-19-12-12-10:303955330",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "World:"
+                }
+            }
+        }
+    },
+
+
+    "SurfaceInstance": {
+        "direct_parents": ["Surface"]
+    },
+
+    "BowlGreyIkeaInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "BowlSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "bowl_bottom"
+        }
+    },
+    "BowlGreyIkeaInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "BowlSurface", "StableSupportingSurface", "PouringSurface", "PourerSurface"],
+        "data": {
+            "geometryName": "bowl_top"
+        }
+    },
+    "CerealBoxInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxInstanceFrontSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxInstanceBackSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxInstanceLeftSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxInstanceRightSurface": {
+        "direct_parents": ["SurfaceInstance", "CerealBoxSurface", "StableSupportingSurface", "SupporterSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstanceBottomSurface": {
+        "direct_parents": ["CerealBoxInstanceBottomSurface"],
+        "data": {
+            "geometryName": "cereal_box_bottom"
+        }
+    },
+    "CerealBoxKelloggsMuslixInstanceTopSurface": {
+        "direct_parents": ["CerealBoxInstanceTopSurface", "OpenableSurface"],
+        "data": {
+            "geometryName": "cereal_box_top"
+        }
+    },
+    "CerealBoxKelloggsMuslixInstanceFrontSurface": {
+        "direct_parents": ["CerealBoxInstanceFrontSurface"],
+        "data": {
+            "geometryName": "cereal_box_front"
+        }
+    },
+    "CerealBoxKelloggsMuslixInstanceBackSurface": {
+        "direct_parents": ["CerealBoxInstanceBackSurface"],
+        "data": {
+            "geometryName": "cereal_box_back"
+        }
+    },
+    "CerealBoxKelloggsMuslixInstanceLeftSurface": {
+        "direct_parents": ["CerealBoxInstanceLeftSurface"],
+        "data": {
+            "geometryName": "cereal_box_left"
+        }
+    },
+    "CerealBoxKelloggsMuslixInstanceRightSurface": {
+        "direct_parents": ["CerealBoxInstanceRightSurface"],
+        "data": {
+            "geometryName": "cereal_box_right"
+        }
+    },
+    "CerealBoxVitalisInstanceBottomSurface": {
+        "direct_parents": ["CerealBoxInstanceBottomSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_bottom"
+        }
+    },
+    "CerealBoxVitalisInstanceTopSurface": {
+        "direct_parents": ["CerealBoxInstanceTopSurface", "PourerSurface", "OpenableSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_top"
+        }
+    },
+    "CerealBoxVitalisInstanceFrontSurface": {
+        "direct_parents": ["CerealBoxInstanceFrontSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_front"
+        }
+    },
+    "CerealBoxVitalisInstanceBackSurface": {
+        "direct_parents": ["CerealBoxInstanceBackSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_back"
+        }
+    },
+    "CerealBoxVitalisInstanceLeftSurface": {
+        "direct_parents": ["CerealBoxInstanceLeftSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_left"
+        }
+    },
+    "CerealBoxVitalisInstanceRightSurface": {
+        "direct_parents": ["CerealBoxInstanceRightSurface"],
+        "data": {
+            "geometryName": "cereal_box_vitalis_right"
+        }
+    },
+    "DrinkingMugTUM-MPIInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "DrinkingMugSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "drinking_mug_bottom"
+        }
+    },
+    "DrinkingMugTUM-MPIInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "DrinkingMugSurface", "StableSupportingSurface", "PouringSurface", "PourerSurface"],
+        "data": {
+            "geometryName": "drinking_mug_top"
+        }
+    },
+    "GroundSupportSurface": {
+        "direct_parents": ["SurfaceInstance", "GroundSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "ground"
+        }
+    },
+    "MilkCartonLidlInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "milk_carton_bottom"
+        }
+    },
+    "MilkCartonLidlInstanceTopBackSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface"],
+        "data": {
+            "geometryName": "milk_carton_top_back"
+        }
+    },
+    "MilkCartonLidlInstanceTopPourSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "PouringSurface", "PourerSurface", "OpenableSurface"],
+        "data": {
+            "geometryName": "milk_carton_top_pour"
+        }
+    },
+    "MilkCartonLidlInstanceFrontSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "milk_carton_front"
+        }
+    },
+    "MilkCartonLidlInstanceBackSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "milk_carton_back"
+        }
+    },
+    "MilkCartonLidlInstanceLeftSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "milk_carton_left"
+        }
+    },
+    "MilkCartonLidlInstanceRightSurface": {
+        "direct_parents": ["SurfaceInstance", "MilkCartonSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "milk_carton_right"
+        }
+    },
+    "PlasticCupInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "CupSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "plastic_cup_bottom"
+        }
+    },
+    "PlasticCupInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "CupSurface", "StableSupportingSurface", "PouringSurface", "PourerSurface"],
+        "data": {
+            "geometryName": "plastic_cup_top"
+        }
+    },
+    "PlasticPlateInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "PlateSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "plastic_plate_bottom"
+        }
+    },
+    "PlasticPlateInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "PlateSurface", "StableSupportingSurface"],
+        "data": {
+            "geometryName": "plastic_plate_top"
+        }
+    },
+    "TrashCanMirmiInstanceBottomSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "trash_can_bottom"
+        }
+    },
+    "TrashCanMirmiInstanceTopSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "PouringSurface", "PourerSurface"],
+        "data": {
+            "geometryName": "trash_can_top"
+        }
+    },
+    "TrashCanMirmiInstanceFrontSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "trash_can_front"
+        }
+    },
+    "TrashCanMirmiInstanceBackSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "trash_can_back"
+        }
+    },
+    "TrashCanMirmiInstanceLeftSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "trash_can_left"
+        }
+    },
+    "TrashCanMirmiInstanceRightSurface": {
+        "direct_parents": ["SurfaceInstance", "TrashCanSurface", "StableSupportingSurface", "SupporterSurface"],
+        "data": {
+            "geometryName": "trash_can_right"
+        }
+    },
+
+    "AgentInstance": {
+        "direct_parents": ["Agent"]
+    },
+    "ClosestPerson": {
+        "direct_parents": ["AgentInstance", "Human"],
+        "data": {
+            "propertyValues": {
+                "LeftHand": "ClosestPerson_ClosestPersonLeftHand",
+                "RightHand": "ClosestPerson_ClosestPersonRightHand",
+                "instanceName": "ClosestPerson",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "World:"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336460026"
+            }
+        }
+    },
+    "FrankaPanda": {
+        "direct_parents": ["AgentInstance", "FrankaRobot"],
+        "data": {
+            "propertyValues": {
+                "FrankaGripper": "FrankaPandaGripper",
+                "_FrankaGripper": "PrensiliaHand"
+            },
+            "abilities": [
+                "IdleAgent", "DetermineCurrentPose", "MoveRobotBodyCartesian", "MoveRobotBodyJointSpace",
+                "MoveRobotBodyJointSpaceSequence", "SeeThenMoveToObject", "GoToDynamicObject", "FollowObject",
+                "FollowObjectControllable", "FollowCartesianTrajectory", "FollowJointTrajectory"
+            ]
+        }
+    },
+
+    "GripperInstance": {
+        "direct_parents": ["Gripper"]
+    },
+    "ClosestPersonLeftHand": {
+        "direct_parents": ["GripperInstance", "LeftHand"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "ClosestPersonRightHand": {
+        "direct_parents": ["GripperInstance", "RightHand"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "FrankaPandaGripper": {
+        "direct_parents": ["GripperInstance", "FrankaGripper"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveGripper", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "PrensiliaHand": {
+        "direct_parents": ["GripperInstance", "FrankaGripper"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.25
+            }
+        }
+    },
+    "BowlGreyIkeaInstance_BowlGreyIkeaInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "BowlGreyIkeaInstance_BowlGreyIkeaInstanceBottomSurface",
+                "location": {
+                    "global": [-0.011092583498791898, -0.30461705148633045, -0.9523500577754176, 0.0057236840823006, -0.018723739254765445, -0.011626193555136454, 0.005437440417449192, 0.24968450971376213],
+                    "pose": [0.0, 0.38267299216551237, 0.9238543276398731, 8.673617379884035e-19, 3.466761286929909e-07, 2.707415549720732e-07, -1.1214482396881831e-07, -6.742424735250996e-06],
+                    "rel": "Object:BowlGreyIkeaInstance"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336470340"
+            }
+        },
+        "direct_parents": ["BowlGreyIkeaInstanceBottomSurface"]
+    },
+    "BowlGreyIkeaInstance_BowlGreyIkeaInstanceTopSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "BowlGreyIkeaInstance_BowlGreyIkeaInstanceTopSurface",
+                "location": {
+                    "global": [-0.888809966687434, 0.011890896840838005, 0.0037963851849094946, -0.45801640114536213, 0.010280415525903402, 0.1899147772979701, -0.163694435678533, -0.01637610764029743],
+                    "pose": [0.923854327639873, 0.0, -4.336808689942018e-19, 0.38267299216551237, -0.01224542360447243, -5.012751293415052e-06, 4.5224772104723865e-06, 0.029563067742920966],
+                    "rel": "Object:BowlGreyIkeaInstance"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336471705"
+            }
+        },
+        "direct_parents": ["BowlGreyIkeaInstanceTopSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceBackSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceBackSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceBottomSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceFrontSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceFrontSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceLeftSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceLeftSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceRightSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceRightSurface"]
+    },
+    "CerealBoxKelloggsMuslixInstance_CerealBoxKelloggsMuslixInstanceTopSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["CerealBoxKelloggsMuslixInstanceTopSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceBackSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceBackSurface",
+                "lastDetected": "2024-03-19-12-12-10:304505794",
+                "location": {
+                    "global": [0.0, 0.0, 0.7071067811865476, 0.7071067811865475, -0.062444005194334865, -0.017760113853978892, -0.3806241358817869, 0.38062413588178695],
+                    "pose": [0.0, 0.0, 0.7071067811865476, 0.7071067811865475, -0.062444005194334865, -0.017760113853978892, -0.027070745288513165, 0.027070745288513165],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceBackSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceBottomSurface",
+                "lastDetected": "2024-03-19-12-12-10:304498355",
+                "location": {
+                    "global": [0.0, 0.7071067811865476, 0.7071067811865475, 0.0, -0.39179510871687595, 0.0, 0.0, 0.3694531630466979],
+                    "pose": [0.0, 0.7071067811865476, 0.7071067811865475, 0.0, -0.038241718123602164, 0.0, 0.0, 0.015899772453424166],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceBottomSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceFrontSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceFrontSurface",
+                "lastDetected": "2024-03-19-12-12-10:304503631",
+                "location": {
+                    "global": [0.7071067811865476, 0.7071067811865475, 0.0, 0.0, -0.3806241358817869, 0.38062413588178695, 0.04010205952415687, 0.04010205952415688],
+                    "pose": [0.7071067811865476, 0.7071067811865475, 0.0, 0.0, -0.027070745288513165, 0.027070745288513165, 0.04010205952415687, 0.04010205952415688],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceFrontSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceLeftSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceLeftSurface",
+                "lastDetected": "2024-03-19-12-12-10:304508055",
+                "location": {
+                    "global": [0.7071067811865476, 0.0, -0.7071067811865475, 0.0, 0.011170972835088994, 0.39365545011743064, 0.011170972835088996, -0.3134513310691168],
+                    "pose": [0.7071067811865476, 0.0, -0.7071067811865475, 0.0, 0.011170972835088994, 0.04010205952415685, 0.011170972835088996, 0.04010205952415691],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceLeftSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceRightSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceRightSurface",
+                "lastDetected": "2024-03-19-12-12-10:304510222",
+                "location": {
+                    "global": [0.5, 0.5, 0.5, 0.5, -0.32453932400378294, 0.2678264475456271, -0.25202830625734285, 0.30874118271549866],
+                    "pose": [0.5, 0.5, 0.5, 0.5, -0.07453932400378294, 0.017826447545627122, -0.002028306257342849, 0.05874118271549866],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceRightSurface"]
+    },
+    "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceTopSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "CerealBoxVitalisInstance1_CerealBoxVitalisInstanceTopSurface",
+                "lastDetected": "2024-03-19-12-12-10:304501328",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.5382838151305629, 0.01579814128828428, 0.1134257529163116],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.03828381513056289, 0.01579814128828428, 0.1134257529163116],
+                    "rel": "Object:CerealBoxVitalisInstance1"
+                }
+            }
+        },
+        "direct_parents": ["CerealBoxVitalisInstanceTopSurface"]
+    },
+    "ClosestPerson_ClosestPersonLeftHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "ClosestPerson_ClosestPersonLeftHand",
+                "interactionVolume": 0.2,
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.003966923337429762, 0.2069714069366455, 0.20827297866344452],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.003966923337429762, 0.2069714069366455, 0.20827297866344452],
+                    "rel": "World:"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336461766"
+            }
+        },
+        "direct_parents": ["ClosestPersonLeftHand"]
+    },
+    "ClosestPerson_ClosestPersonRightHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "ClosestPerson_ClosestPersonRightHand",
+                "interactionVolume": 0.2,
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, -0.3397640883922577, -0.046555593609809875, 0.038872361183166504],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, -0.3397640883922577, -0.046555593609809875, 0.038872361183166504],
+                    "rel": "World:"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336462472"
+            }
+        },
+        "direct_parents": ["ClosestPersonRightHand"]
+    },
+    "DrinkingMugTUM-MPIInstance_DrinkingMugTUM-MPIInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "DrinkingMugTUM-MPIInstance_DrinkingMugTUM-MPIInstanceBottomSurface",
+                "lastDetected": "2024-03-19-12-12-10:303314800",
+                "location": {
+                    "global": [0.0, 0.3826834323650898, 0.9238795325112867, 0.0, -0.37611762268480226, 0.0, 0.0, 0.3854030797826254],
+                    "pose": [0.0, 0.3826834323650898, 0.9238795325112867, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "Object:DrinkingMugTUM-MPIInstance"
+                }
+            }
+        },
+        "direct_parents": ["DrinkingMugTUM-MPIInstanceBottomSurface"]
+    },
+    "DrinkingMugTUM-MPIInstance_DrinkingMugTUM-MPIInstanceTopSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "DrinkingMugTUM-MPIInstance_DrinkingMugTUM-MPIInstanceTopSurface",
+                "lastDetected": "2024-03-19-12-12-10:303317607",
+                "location": {
+                    "global": [0.9238795325112867, 0.0, 0.0, 0.3826834323650898, -0.018560146469706856, 0.5384764527286613, -0.0065658096802875265, 0.04480815732679741],
+                    "pose": [0.9238795325112867, 0.0, 0.0, 0.3826834323650898, -0.018560146469706856, 0.0, 0.0, 0.04480815732679741],
+                    "rel": "Object:DrinkingMugTUM-MPIInstance"
+                }
+            }
+        },
+        "direct_parents": ["DrinkingMugTUM-MPIInstanceTopSurface"]
+    },
+    "FrankaPanda_FrankaPandaGripper": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["FrankaPandaGripper"]
+    },
+    "GroundInstance_GroundSupportSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "GroundInstance_GroundSupportSurface",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "Object:GroundInstance"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336475615"
+            }
+        },
+        "direct_parents": ["GroundSupportSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceBackSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceBackSurface",
+                "location": {
+                    "global": [-0.11148460778929428, -0.10896563202230376, 0.7043737324474241, 0.6924992038213504, -0.08102330192699891, 0.02674902921169585, 0.08440825041760344, -0.09469047790560364],
+                    "pose": [0.0, 0.0, 0.7071067811865467, 0.7071067811865466, -0.06156368109048607, -0.006727878543857632, -0.013783452145902781, 0.013783452145902791],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336486403"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceBackSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceBottomSurface",
+                "location": {
+                    "global": [0.004677776429541463, 0.5882113482285882, 0.8086615880401861, -0.007196752196532004, 0.04741460484909499, 0.006680863088347803, -0.006268838923146572, -0.12753180993161561],
+                    "pose": [-3.469446951953614e-18, 0.7071067811865466, 0.7071067811865465, 0.0, -0.02749240278255994, 2.168404344971009e-19, -8.673617379884035e-19, 7.450150924563637e-05],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336481724"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceBottomSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceFrontSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceFrontSurface",
+                "location": {
+                    "global": [0.7043737324474241, 0.6924992038213504, 0.11148460778929428, 0.10896563202230376, 0.080183133334214, -0.09036768812167337, 0.054171806074615955, 0.0005628987312838105],
+                    "pose": [0.7071067811865467, 0.7071067811865466, 0.0, 0.0, -0.013783452145902783, 0.013783452145902805, 0.034145779817171956, 0.03414577981717176],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336485556"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceFrontSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceLeftSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceLeftSurface",
+                "location": {
+                    "global": [0.6996959560178825, 0.10428785559276223, -0.6971769802508919, 0.1161623842188358, 0.03296429032199581, -0.07375003613322295, 0.043429148617766436, 0.12830362664601336],
+                    "pose": [0.7071067811865466, -5.551115123125783e-17, -0.7071067811865466, 5.551115123125783e-17, 0.013708950636657155, 0.034145779817171804, 0.013708950636657155, 0.03414577981717189],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336487290"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceLeftSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceRightSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceRightSurface",
+                "location": {
+                    "global": [0.4192359205375198, 0.412620545669113, 0.576898964868985, 0.566721220307611, -0.0006537992491759265, -0.044924402447560685, 0.09794742355106856, -0.06651407839623277],
+                    "pose": [0.49999999999999933, 0.49999999999999933, 0.49999999999999933, 0.4999999999999993, -0.05333114937681316, 0.005041724461563243, 0.014345659454700607, 0.03394376546054934],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336488065"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceRightSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceTopBackSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceTopBackSurface",
+                "location": {
+                    "global": [0.5756362574867212, 0.12106762921565503, 0.17975461705069185, 0.7884628303622265, -0.06495976090508832, -0.05396859814157391, 0.13085029814254834, 0.025880863199058683],
+                    "pose": [0.6907887880617521, 0.15103261332630843, 0.1510326133263084, 0.6907887880617523, -0.07716036735494891, 0.01828804835884912, 0.008497126519558529, 0.07130411283808137],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336483360"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceTopBackSurface"]
+    },
+    "MilkCartonLidlInstance1_MilkCartonLidlInstanceTopPourSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "MilkCartonLidlInstance1_MilkCartonLidlInstanceTopPourSurface",
+                "location": {
+                    "global": [0.9651098557818524, 0.025250142489531786, -0.21022164239740626, 0.15405222048318426, -0.003171588938417569, -0.11058710471403516, 0.058012940280020554, 0.11716057985953132],
+                    "pose": [0.9767036487371298, 1.3877787807814457e-17, -0.21459259666534297, 5.551115123125783e-17, 0.004160389057138964, 0.031210090435774433, 0.018935728610482455, 0.09663258205675908],
+                    "rel": "Object:MilkCartonLidlInstance1"
+                },
+                "lastDetected": "2024-03-21-07-40-23:336484706"
+            }
+        },
+        "direct_parents": ["MilkCartonLidlInstanceTopPourSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceBackSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceBackSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceBottomSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceFrontSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceFrontSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceLeftSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceLeftSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceRightSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceRightSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceTopBackSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceTopBackSurface"]
+    },
+    "MilkCartonLidlInstanceLost_MilkCartonLidlInstanceTopPourSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["MilkCartonLidlInstanceTopPourSurface"]
+    },
+    "PlasticCupInstance1_PlasticCupInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "PlasticCupInstance1_PlasticCupInstanceBottomSurface",
+                "lastDetected": "2024-03-19-12-12-10:304846148",
+                "location": {
+                    "global": [0.0, 0.38268343236508984, 0.9238795325112867, 0.0, -0.22281694529609603, -0.10624614623879798, 0.04400859472198533, 0.4921979874897058],
+                    "pose": [0.0, 0.38268343236508984, 0.9238795325112867, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "Object:PlasticCupInstance1"
+                }
+            }
+        },
+        "direct_parents": ["PlasticCupInstanceBottomSurface"]
+    },
+    "PlasticCupInstance1_PlasticCupInstanceTopSurface": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "PlasticCupInstance1_PlasticCupInstanceTopSurface",
+                "lastDetected": "2024-03-19-12-12-10:304848824",
+                "location": {
+                    "global": [0.9238795325112867, 0.0, 0.0, 0.38268343236508984, -0.062377399475509646, 0.505591907622484, -0.190481161658201, 0.15059236379933974],
+                    "pose": [0.9238795325112867, 0.0, 0.0, 0.38268343236508984, -0.018368804753524315, 0.0, 0.0, 0.04434621756054176],
+                    "rel": "Object:PlasticCupInstance1"
+                }
+            }
+        },
+        "direct_parents": ["PlasticCupInstanceTopSurface"]
+    },
+    "PlasticCupInstance2_PlasticCupInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticCupInstanceBottomSurface"]
+    },
+    "PlasticCupInstance2_PlasticCupInstanceTopSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticCupInstanceTopSurface"]
+    },
+    "PlasticPlateInstance1_PlasticPlateInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticPlateInstanceBottomSurface"]
+    },
+    "PlasticPlateInstance1_PlasticPlateInstanceTopSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticPlateInstanceTopSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceBackSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceBackSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceBottomSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceFrontSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceFrontSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceLeftSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceLeftSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceRightSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceRightSurface"]
+    },
+    "TrashCanMirmiInstance_TrashCanMirmiInstanceTopSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["TrashCanMirmiInstanceTopSurface"]
+    },
+    "Person 0": {
+        "data": {
+            "propertyValues": {
+                "LeftHand": "Person 0_LeftHand",
+                "RightHand": "Person 0_RightHand",
+                "instanceName": "Person 0",
+                "lastDetected": "2024-03-05-11-11-55:060055191",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["AgentInstance", "Human"]
+    },
+    "Person 0_LeftHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "Person 0_LeftHand",
+                "interactionVolume": 0.2,
+                "lastDetected": "2024-03-05-11-11-55:060067190",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.019603615626692772, 0.7838515639305115, -0.03991837427020073],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.019603615626692772, 0.7838515639305115, -0.03991837427020073],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["GripperInstance", "LeftHand"]
+    },
+    "Person 0_RightHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "Person 0_RightHand",
+                "interactionVolume": 0.2,
+                "lastDetected": "2024-03-05-11-11-55:060070319",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.10902571678161621, -0.8841099143028259, 0.461031049489975],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.10902571678161621, -0.8841099143028259, 0.461031049489975],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["GripperInstance", "RightHand"]
+    },
+    "Person 1": {
+        "data": {
+            "propertyValues": {
+                "LeftHand": "Person 1_LeftHand",
+                "RightHand": "Person 1_RightHand",
+                "instanceName": "Person 1",
+                "lastDetected": "2024-03-05-11-11-55:060073900",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["AgentInstance", "Human"]
+    },
+    "Person 1_LeftHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "Person 1_LeftHand",
+                "interactionVolume": 0.2,
+                "lastDetected": "2024-03-05-11-11-55:060077673",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, -0.035963643342256546, 0.1365034580230713, 0.20297174155712128],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, -0.035963643342256546, 0.1365034580230713, 0.20297174155712128],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["GripperInstance", "LeftHand"]
+    },
+    "Person 1_RightHand": {
+        "data": {
+            "propertyValues": {
+                "instanceName": "Person 1_RightHand",
+                "interactionVolume": 0.2,
+                "lastDetected": "2024-03-05-11-11-55:060080354",
+                "location": {
+                    "global": [1.0, 0.0, 0.0, 0.0, 0.0, -0.2561425268650055, -0.1034722551703453, 0.005978038068860769],
+                    "pose": [1.0, 0.0, 0.0, 0.0, 0.0, -0.2561425268650055, -0.1034722551703453, 0.005978038068860769],
+                    "rel": "World:"
+                }
+            }
+        },
+        "direct_parents": ["GripperInstance", "RightHand"]
+    },
+    "PlasticCupPaperInstance1_PlasticCupInstanceBottomSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticCupInstanceBottomSurface"]
+    },
+    "PlasticCupPaperInstance1_PlasticCupInstanceTopSurface": {
+        "data": {
+            "propertyValues": {}
+        },
+        "direct_parents": ["PlasticCupInstanceTopSurface"]
+    }
+}

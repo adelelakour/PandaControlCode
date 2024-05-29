@@ -1,0 +1,201 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "MovableObject",
+        "fromLocation": "Location",
+        "toLocation": "Location",
+        "p": "Sequence<Vector<3>>",
+        "q": "Sequence<Quaternion>",
+        "t": "Sequence<Number>",
+        "v": "Sequence<Vector<3>>",
+        "omega": "Sequence<Vector<3>>",
+        "acc": "Sequence<Vector<3>>",
+        "alpha": "Sequence<Vector<3>>"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            }, {
+                                "IsContact": {
+                                    "concept1": "g",
+                                    "concept2": "o"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Location>": {
+                                    "who": "fromLocation",
+                                    "what": "o.location"
+                                }
+                            }, {
+                                "ClearSequence<Vector<3>>": {
+                                    "seq": "p"
+                                }
+                            }, {
+                                "ClearSequence<Quaternion>": {
+                                    "seq": "q"
+                                }
+                            }, {
+                                "ClearSequence<Number>": {
+                                    "seq": "t"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "IsContact": {
+                                    "concept1": "g",
+                                    "concept2": "o"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "AddToSequence<Vector<3>>": {
+                                    "what": {
+                                        "GetGlobalPosition": {
+                                            "l": "o.location"
+                                        }
+                                    },
+                                    "where": "p"
+                                }
+                            }, {
+                                "AddToSequence<Quaternion>": {
+                                    "what": {
+                                        "GetGlobalOrientation": {
+                                            "l": "o.location"
+                                        }
+                                    },
+                                    "where": "q"
+                                }
+                            }, {
+                                "AddToSequence<Number>": {
+                                    "what": {
+                                        "GetCurrentTimeFromEnvironmentData": {
+                                            "env": "env"
+                                        }
+                                    },
+                                    "where": "t"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "wasSuccessful": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": true
+                                }
+                            }, {
+                                "Condition": {
+                                    "condition": {
+                                        "IsParameterSet": {
+                                            "parameterCollection": "parameters",
+                                            "whichParameter": "toLocation"
+                                        }
+                                    },
+                                    "ifTrue": [
+                                        {
+                                            "Assign<Boolean>": {
+                                                "who": "res",
+                                                "what": {
+                                                    "IsAt": {
+                                                        "where": "toLocation",
+                                                        "what": "o"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "ifFalse": [
+                                        {
+                                            "Assign<Location>": {
+                                                "who": "toLocation",
+                                                "what": {
+                                                    "DetermineLocationOfEntityInEnvironment": {
+                                                        "instance": "o",
+                                                        "env": "env",
+                                                        "contactThreshold": 0.1,
+                                                        "angleDegThreshold": 5
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": "res"
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "Assign<Location>": {
+                        "who": "o.location",
+                        "what": "toLocation"
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]],
+    "actionAssociation": [
+        {
+            "ChangeLocation": {
+                "o": "o",
+                "newLocation": "toLocation"
+            }
+        }
+    ]
+}

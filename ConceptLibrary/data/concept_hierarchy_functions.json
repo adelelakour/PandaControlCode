@@ -1,0 +1,2181 @@
+{
+    "Function": {
+        "direct_parents": ["Concept"],
+        "data": {},
+        "_data_should_contain_inputs-_and_resultTypes_as_parameters...": {}
+    },
+    "Assign": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["who", "what"],
+                "who": ["T", "Modify"],
+                "what": ["T", "Get"]
+            }
+        }
+    },
+    "Condition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["condition", "ifTrue", "ifFalse"],
+                "condition": ["Boolean", "Get"],
+                "ifTrue": ["Sequence<Function>", "Get"],
+                "ifFalse": ["Sequence<Function>", "Get"],
+                "defaults": {
+                    "ifFalse": []
+                }
+            }
+        }
+    },
+    "Repeat": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what", "howManyTimes"],
+                "what": ["Sequence<Function>", "Get"],
+                "howManyTimes": ["Number", "Get"]
+            }
+        }
+    },
+    "RepeatWithIndex": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["indexVariable", "indexStart", "indexEndNonInclusive", "what"],
+                "what": ["Sequence<Function>", "Get"],
+                "indexStart": ["Number", "Get"],
+                "indexEndNonInclusive": ["Number", "Get"],
+                "indexVariable": ["String", "Get"]
+            }
+        }
+    },
+    "FunctionSequence": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["fs"],
+                "fs": ["Sequence<Function>", "Get"]
+            }
+        }
+    },
+    "RequireTrue": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what"],
+                "what": ["Sequence<Function>", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": "true"
+                    }
+                }
+
+            ]
+        }
+    },
+    "Stop": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {}
+        }
+    },
+    "Return": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["what"],
+                "what": ["T", "Get"],
+                "res": ["T", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<T>": {
+                        "who": "res",
+                        "what": "what"
+                    }
+                }
+            ]
+        }
+    },
+
+    "And": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": "arg1",
+                    "ifTrue": {
+                        "Condition": {
+                            "condition": "arg2",
+                            "ifTrue": {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": true
+                                }
+                            },
+                            "ifFalse": {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": false
+                                }
+                            }
+                        }
+                    },
+                    "ifFalse": {
+                        "Assign<Boolean>": {
+                            "who": "res",
+                            "what": false
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "NAnd": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "Not": {
+                            "arg": {
+                                "And": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Or": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": "arg1",
+                    "ifTrue": {
+                        "Assign<Boolean>": {
+                            "who": "res",
+                            "what": true
+                        }
+                    },
+                    "ifFalse": {
+                        "Condition": {
+                            "condition": "arg2",
+                            "ifTrue": {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": true
+                                }
+                            },
+                            "ifFalse": {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "XOr": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": "arg1",
+                    "ifTrue": {
+                        "Assign<Boolean>": {
+                            "who": "res",
+                            "what": {
+                                "Not": {
+                                    "arg": "arg2"
+                                }
+                            }
+                        }
+                    },
+                    "ifFalse": {
+                        "Assign<Boolean>": {
+                            "who": "res",
+                            "what": "arg2"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "NOr": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "And": {
+                            "arg1": {
+                                "Not": {
+                                    "arg": "arg1"
+                                }
+                            },
+                            "arg2": {
+                                "Not": {
+                                    "arg": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Implies": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Boolean", "Get"],
+                "arg2": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Condition": {
+                        "condition": "a",
+                        "ifTrue": [
+                            {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": "b"
+                                }
+                            }
+                        ],
+                        "ifFalse": [
+                            {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+
+    "Less": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "NumberEquals": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "Not": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg"],
+                "arg": ["Boolean", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": "arg",
+                    "ifTrue": [
+                        {
+                            "Assign<Boolean>": {
+                                "who": "res",
+                                "what": false
+                            }
+                        }
+                    ],
+                    "ifFalse": [
+                        {
+                            "Assign<Boolean>": {
+                                "who": "res",
+                                "what": true
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "NotEqual": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "Not": {
+                            "arg": {
+                                "NumberEquals": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "AbsoluteValue": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg"],
+                "arg": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": {
+                        "Less": {
+                            "arg1": "arg",
+                            "arg2": 0
+                        }
+                    },
+                    "ifTrue": {
+                        "Assign<Number>": {
+                            "who": "res",
+                            "what": {
+                                "Negative": {
+                                    "arg": "arg"
+                                }
+                            }
+                        }
+                    },
+                    "ifFalse": {
+                        "Assign<Number>": {
+                            "who": "res",
+                            "what": "arg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "NumberEqualsThreshold": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2", "threshold"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "threshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "Less": {
+                            "arg1": {
+                                "AbsoluteValue": {
+                                    "arg": {
+                                        "Subtract": {
+                                            "what": "arg1",
+                                            "from": "arg2"
+                                        }
+                                    }
+                                }
+                            },
+                            "arg2": "threshold"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "LessEqual": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "And": {
+                            "arg1": {
+                                "Less": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            },
+                            "arg2": {
+                                "NumberEquals": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Greater": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "Not": {
+                            "arg": {
+                                "And": {
+                                    "arg1": {
+                                        "Less": {
+                                            "arg1": "arg1",
+                                            "arg2": "arg2"
+                                        }
+                                    },
+                                    "arg2": {
+                                        "NumberEquals": {
+                                            "arg1": "arg1",
+                                            "arg2": "arg2"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "GreaterEqual": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "Not": {
+                            "arg": {
+                                "Less": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Negative": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg"],
+                "arg": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "Add": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "Subtract": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what", "from"],
+                "what": ["Number", "Get"],
+                "from": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "res",
+                    "what": {
+                        "Add": {
+                            "arg1": "from",
+                            "arg2": {
+                                "Negative": {
+                                    "arg": "what"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Multiply": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "Divide": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what", "with"],
+                "what": ["Number", "Get"],
+                "with": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "Pow": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what", "to"],
+                "what": ["Number", "Get"],
+                "to": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Number>": {
+                        "who": "res",
+                        "what": 1
+                    }
+                }, {
+                    "Repeat": {
+                        "what": {
+                            "Assign<Number>": {
+                                "who": "res",
+                                "what": {
+                                    "Multiply": {
+                                        "arg1": "res",
+                                        "arg2": "what"
+                                    }
+                                }
+                            }
+                        },
+                        "howManyTimes": "to"
+                    }
+                }
+            ]
+        }
+    },
+    "Root": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["what", "nth"],
+                "nth": ["Number", "Get"],
+                "what": ["Number", "Get"],
+                "res": ["Number", "Modify"],
+                "defaults": {
+                    "nth": 2
+                }
+            }
+        }
+    },
+    "Increment": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", ["Get", "Modify"]],
+                "arg2": ["Number", "Get"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "arg1",
+                    "what": {
+                        "Add": {
+                            "arg1": "arg1",
+                            "arg2": "arg2"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Decrement": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", ["Get", "Modify"]],
+                "arg2": ["Number", "Get"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "arg1",
+                    "what": {
+                        "Subtract": {
+                            "from": "arg1",
+                            "what": "arg2"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Max": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": {
+                        "Less": {
+                            "arg1": "arg1",
+                            "arg2": "arg2"
+                        }
+                    },
+                    "ifTrue": [
+                        {
+                            "Assign<Number>": {
+                                "who": "res",
+                                "what": "arg2"
+                            }
+                        }
+                    ],
+                    "ifFalse": [
+                        {
+                            "Assign<Number>": {
+                                "who": "res",
+                                "what": "arg1"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "Min": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Number", "Get"],
+                "arg2": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Condition": {
+                    "condition": {
+                        "Less": {
+                            "arg1": "arg1",
+                            "arg2": "arg2"
+                        }
+                    },
+                    "ifTrue": [
+                        {
+                            "Assign<Number>": {
+                                "who": "res",
+                                "what": "arg1"
+                            }
+                        }
+                    ],
+                    "ifFalse": [
+                        {
+                            "Assign<Number>": {
+                                "who": "res",
+                                "what": "arg2"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "DegToRad": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["degValue"],
+                "degValue": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "res",
+                    "what": {
+                        "Multiply": {
+                            "arg1": "degValue",
+                            "arg2": {
+                                "Divide": {
+                                    "what": "pi",
+                                    "with": 180
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "RadToDeg": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["radValue"],
+                "radValue": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "res",
+                    "what": {
+                        "Multiply": {
+                            "arg1": "radValue",
+                            "arg2": {
+                                "Divide": {
+                                    "what": 180,
+                                    "with": "pi"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "SurfaceNormalAngle": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["surface1", "surface2"],
+                "surface1": ["Surface", "Get"],
+                "surface2": ["Surface", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "DistanceBetweenEntities": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["concept1", "concept2"],
+                "concept1": ["Object", "Get"],
+                "concept2": ["Object", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "Proximity": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["threshold", "concept1", "concept2"],
+                "threshold": ["Number", "Get"],
+                "concept1": ["PhysicalEntity", "Get"],
+                "concept2": ["PhysicalEntity", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "IsContact": {
+        "direct_parents": ["Proximity"],
+        "data": {
+            "interface": {
+                "defaults": {
+                    "threshold": 0.01
+                }
+            }
+        }
+    },
+    "Facing": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["facer", "what"],
+                "facer": ["Surface", "Get"],
+                "what": ["Surface", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "SurfacesInContact": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["surface1", "surface2", "contactThreshold", "angleDegThreshold"],
+                "surface1": ["Surface", "Get"],
+                "surface2": ["Surface", "Get"],
+                "contactThreshold": ["Number", "Get"],
+                "angleDegThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "DirectionSurfaceToSurface": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["surface1", "surface2"],
+                "surface1": ["Surface", "Get"],
+                "surface2": ["Surface", "Get"],
+                "res": ["Vector<3>", "Modify"]
+            }
+        }
+    },
+    "SurfaceNormal": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["surface"],
+                "surface": ["Surface", "Get"],
+                "res": ["Vector<3>", "Modify"]
+            }
+        }
+    },
+    "VectorDirectionRelativeToSurface": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["surface", "vector"],
+                "surface": ["Surface", "Get"],
+                "vector": ["Vector<3>", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "GripperTouchesObject": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["gripper", "object", "threshold"],
+                "gripper": ["Gripper", "Get"],
+                "object": ["Object", "Get"],
+                "threshold": ["Number", "Get"],
+                "parameters": ["Vector<3>", "Modify"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+
+    "StringEquals": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["String", "Get"],
+                "arg2": ["String", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "VectorEquals": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Number"
+                },
+                "arguments": ["arg1", "arg2", "threshold"],
+                "arg1": ["Vector<N>", "Get"],
+                "arg2": ["Vector<N>", "Get"],
+                "threshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": true
+                    }
+                }, {
+                    "RepeatWithIndex": {
+                        "indexStart": 0,
+                        "indexEndNonInclusive": "N",
+                        "indexVariable": "iterationIndex",
+                        "what": [
+                            {
+                                "Condition": {
+                                    "condition": {
+                                        "Not": {
+                                            "arg": {
+                                                "NumberEqualsThreshold": {
+                                                    "threshold": "threshold",
+                                                    "arg1": {
+                                                        "VectorComponent<N>": {
+                                                            "v": "arg1",
+                                                            "i": "iterationIndex"
+                                                        }
+                                                    },
+                                                    "arg2": {
+                                                        "VectorComponent<N>": {
+                                                            "v": "arg2",
+                                                            "i": "iterationIndex"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ifTrue": [
+                                        {
+                                            "Assign<Boolean>": {
+                                                "who": "res",
+                                                "what": false
+                                            }
+                                        },
+                                        {
+                                            "Stop": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "QuaternionEquals": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2", "threshold"],
+                "arg1": ["Quaternion", "Get"],
+                "arg2": ["Quaternion", "Get"],
+                "threshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": true
+                    }
+                }, {
+                    "RepeatWithIndex": {
+                        "indexStart": 0,
+                        "indexEndNonInclusive": "N",
+                        "indexVariable": "iterationIndex",
+                        "what": [
+                            {
+                                "Condition": {
+                                    "condition": {
+                                        "Not": {
+                                            "arg": {
+                                                "NumberEqualsThreshold": {
+                                                    "threshold": "threshold",
+                                                    "arg1": {
+                                                        "VectorComponent<N>": {
+                                                            "v": "arg1",
+                                                            "i": "iterationIndex"
+                                                        }
+                                                    },
+                                                    "arg2": {
+                                                        "VectorComponent<N>": {
+                                                            "v": "arg2",
+                                                            "i": "iterationIndex"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ifTrue": [
+                                        {
+                                            "Assign<Boolean>": {
+                                                "who": "res",
+                                                "what": false
+                                            }
+                                        },
+                                        {
+                                            "Stop": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "PoseEquals": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2", "threshold"],
+                "arg1": ["Pose", "Get"],
+                "arg2": ["Pose", "Get"],
+                "threshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "And": {
+                                "arg1": {
+                                    "VectorEquals<3>": {
+                                        "arg1": "arg1.t",
+                                        "arg2": "arg2.t",
+                                        "threshold": "threshold"
+                                    }
+                                },
+                                "arg2": {
+                                    "QuaternionEquals": {
+                                        "arg1": "arg1.q",
+                                        "arg2": "arg2.q",
+                                        "threshold": "threshold"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+
+    "GetTranslationFromPose": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["p"],
+                "p": ["Pose", "Get"],
+                "res": ["Vector<3>", "Modify"]
+            }
+        }
+    },
+    "GetOrientationFromPose": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["p"],
+                "p": ["Pose", "Get"],
+                "res": ["Quaternion", "Modify"]
+            }
+        }
+    },
+    "GetGlobalPoseFromLocation": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["l"],
+                "l": ["Location", "Get"],
+                "res": ["Pose", "Modify"]
+            }
+        }
+    },
+
+    "SameLocation": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["arg1", "arg2", "threshold"],
+                "arg1": ["Location", "Get"],
+                "arg2": ["Location", "Get"],
+                "threshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "And": {
+                            "arg1": {
+                                "VectorEquals<3>": {
+                                    "arg1": "arg1.globalPose.t",
+                                    "arg2": "arg2.globalPose.t",
+                                    "threshold": "threshold"
+                                }
+                            },
+                            "arg2": {
+                                "QuaternionEquals": {
+                                    "arg1": "arg1.globalPose.q",
+                                    "arg2": "arg2.globalPose.q",
+                                    "threshold": "threshold"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "IsAt": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["where", "what"],
+                "where": ["Location", "Get"],
+                "what": ["PhysicalEntity", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": {
+                "Assign<Boolean>": {
+                    "who": "res",
+                    "what": {
+                        "SameLocation": {
+                            "arg1": "where",
+                            "arg2": "what.location"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "SetLocation": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["entity", "location"],
+                "location": ["PhysicalEntity", "Get"],
+                "entity": ["PhysicalEntity", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Location>": {
+                        "who": "entity.location",
+                        "what": "location.location"
+                    }
+                }
+            ]
+        }
+    },
+    "SetLocationFromLocation": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["entity", "location"],
+                "location": ["Location", "Get"],
+                "entity": ["PhysicalEntity", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Location>": {
+                        "who": "entity.location",
+                        "what": "location"
+                    }
+                }
+            ]
+        }
+    },
+    "EntityLocationRelativeTo": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["reference", "entity"],
+                "reference": ["PhysicalEntity", "Get"],
+                "entity": ["PhysicalEntity", "Get"],
+                "res": ["Location", "Modify"]
+            }
+        }
+    },
+    "GetGlobalPosition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["l"],
+                "l": ["Location", "Get"],
+                "res": ["Vector<3>", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Vector<3>>": {
+                        "who": "res",
+                        "what": {
+                            "GetTranslationFromPose": {
+                                "p": {
+                                    "GetGlobalPoseFromLocation": {
+                                        "l": "l"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "GetGlobalOrientation": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["l"],
+                "l": ["Location", "Get"],
+                "res": ["Quaternion", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Quaternion>": {
+                        "who": "res",
+                        "what": {
+                            "GetOrientationFromPose": {
+                                "p": {
+                                    "GetGlobalPoseFromLocation": {
+                                        "l": "l"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "DetermineLocationOfEntityInEnvironment": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["instance", "env", "contactThreshold", "angleDegThreshold"],
+                "instance": ["PhysicalEntity", "Get"],
+                "env": ["EnvironmentData", "Get"],
+                "contactThreshold": ["Number", "Get"],
+                "angleDegThreshold": ["Number", "Get"],
+                "res": ["Location", "Modify"]
+            }
+        }
+    },
+
+    "SurfaceOf": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["s", "o"],
+                "s": ["Surface", "Get"],
+                "o": ["Object", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "IsInContainer<String>": {
+                                "which": "o->surfaces",
+                                "what": "s.instanceName"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "GripperOf": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["g", "a"],
+                "g": ["Gripper", "Get"],
+                "a": ["Agent", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "IsInContainer<String>": {
+                                "which": "a->grippers",
+                                "what": "g.instanceName"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "EntitiesDifferent": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["e1", "e2"],
+                "e1": ["PhysicalEntity", "Get"],
+                "e2": ["PhysicalEntity", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "Not": {
+                                "arg": {
+                                    "StringEquals": {
+                                        "arg1": "e1.instanceName",
+                                        "arg2": "e2.instanceName"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "EntitiesSame": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["e1", "e2"],
+                "e1": ["PhysicalEntity", "Get"],
+                "e2": ["PhysicalEntity", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "StringEquals": {
+                                "arg1": "e1.instanceName",
+                                "arg2": "e2.instanceName"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "EntitiesSameType": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["e1", "e2"],
+                "e1": ["PhysicalEntity", "Get"],
+                "e2": ["PhysicalEntity", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "NumberEquals": {
+                                "arg1": "n:e1->getInstanceType()",
+                                "arg2": "n:e2->getInstanceType()"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "EntityName": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["e"],
+                "e": ["PhysicalEntity", "Get"],
+                "res": ["String", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<String>": {
+                        "who": "res",
+                        "what": "e.instanceName"
+                    }
+                }
+            ]
+        }
+    },
+
+    "VectorAdd": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Vector<N>", "Get"],
+                "arg2": ["Vector<N>", "Get"],
+                "res": ["Vector<N>", "Modify"]
+            },
+            "procedure": [
+                {
+                    "RepeatWithIndex": {
+                        "what": [
+                            {
+                                "Assign<Number>": {
+                                    "who": {
+                                        "VectorComponent<N>": {
+                                            "v": "res",
+                                            "i": "iterationIndex"
+                                        }
+                                    },
+                                    "what": {
+                                        "Add": {
+                                            "arg1": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg1",
+                                                    "i": "iterationIndex"
+                                                }
+                                            },
+                                            "arg2": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg2",
+                                                    "i": "iterationIndex"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "indexStart": 0,
+                        "indexEndNonInclusive": "N",
+                        "indexVariable": "iterationIndex"
+                    }
+                }
+            ]
+        }
+    },
+    "VectorSubtract": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Vector<N>", "Get"],
+                "arg2": ["Vector<N>", "Get"],
+                "res": ["Vector<N>", "Modify"]
+            },
+            "procedure": [
+                {
+                    "RepeatWithIndex": {
+                        "what": [
+                            {
+                                "Assign<Number>": {
+                                    "who": {
+                                        "VectorComponent<N>": {
+                                            "v": "res",
+                                            "i": "iterationIndex"
+                                        }
+                                    },
+                                    "what": {
+                                        "Subtract": {
+                                            "from": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg1",
+                                                    "i": "iterationIndex"
+                                                }
+                                            },
+                                            "what": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg2",
+                                                    "i": "iterationIndex"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "indexStart": 0,
+                        "indexEndNonInclusive": "N",
+                        "indexVariable": "iterationIndex"
+                    }
+                }
+            ]
+        }
+    },
+    "VectorNorm": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["v"],
+                "v": ["Vector<N>", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "res",
+                    "what": {
+                        "Root": {
+                            "nth": 2,
+                            "value": {
+                                "DotProduct<N>": {
+                                    "arg1": "v",
+                                    "arg2": "v"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "AbsoluteDistance": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Vector<N>", "Get"],
+                "arg2": ["Vector<N>", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": {
+                "Assign<Number>": {
+                    "who": "res",
+                    "what": {
+                        "VectorNorm": {
+                            "v": {
+                                "VectorSub": {
+                                    "arg1": "arg1",
+                                    "arg2": "arg2"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "VectorComponent": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["v", "i"],
+                "v": ["Vector<N>", "Get"],
+                "i": ["Number", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "VectorComponentNegative": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["v", "i"],
+                "v": ["Vector<N>", "Get"],
+                "i": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": {
+                            "Less": {
+                                "arg1": {
+                                    "VectorComponent<N>": {
+                                        "v": "v",
+                                        "i": "i"
+                                    }
+                                },
+                                "arg2": 0
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "VectorComponentLargestInAbsValue": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["v", "i"],
+                "v": ["Vector<N>", "Get"],
+                "i": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "DotProduct": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["N"],
+                    "N": "Integer"
+                },
+                "arguments": ["arg1", "arg2"],
+                "arg1": ["Vector<N>", "Get"],
+                "arg2": ["Vector<N>", "Get"],
+                "res": ["Number", "Modify"]
+            },
+            "procedure": [
+                {
+                    "Assign<Number>": {
+                        "who": "res",
+                        "what": 0
+                    }
+                }, {
+                    "RepeatWithIndex": {
+                        "indexStart": 0,
+                        "indexEndNonInclusive": "N",
+                        "indexVariable": "iterationIndex",
+                        "what": [
+                            {
+                                "Increment": {
+                                    "arg1": "res",
+                                    "arg2": {
+                                        "Add": {
+                                            "arg1": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg1",
+                                                    "i": "iterationIndex"
+                                                }
+                                            },
+                                            "arg2": {
+                                                "VectorComponent<N>": {
+                                                    "v": "arg2",
+                                                    "i": "iterationIndex"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+
+    "IsActionActiveNow": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "actionIdentifier"],
+                "env": ["EnvironmentData", "Get"],
+                "actionIdentifier": ["String", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "IsSameActionInPreviousTimeStep": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "actionIdentifier", "prevTimeSteps"],
+                "env": ["EnvironmentData", "Get"],
+                "prevTimeSteps": ["Number", "Get"],
+                "actionIdentifier": ["String", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistoryActionPresenceTransition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "actionIdentifier", "minPresenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "actionIdentifier": ["String", "Get"],
+                "minPresenceThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistoryActionPresenceTransitionWithLastActiveAction": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "actionIdentifier", "lastActiveAction", "minPresenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "actionIdentifier": ["String", "Get"],
+                "minPresenceThreshold": ["Number", "Get"],
+                "lastActiveAction": ["Action", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistoryActionAbsenceTransition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "actionIdentifier", "minAbsenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "actionIdentifier": ["String", "Get"],
+                "minAbsenceThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "IsSkillActiveNow": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "skillIdentifier"],
+                "env": ["EnvironmentData", "Get"],
+                "skillIdentifier": ["String", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "IsSameSkillInPreviousTimeStep": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "skillIdentifier", "prevTimeSteps"],
+                "env": ["EnvironmentData", "Get"],
+                "prevTimeSteps": ["Number", "Get"],
+                "skillIdentifier": ["String", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistorySkillPresenceTransition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "skillIdentifier", "minPresenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "skillIdentifier": ["String", "Get"],
+                "minPresenceThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistorySkillPresenceTransitionWithLastActiveAction": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "skillIdentifier", "lastActiveAction", "minPresenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "skillIdentifier": ["String", "Get"],
+                "minPresenceThreshold": ["Number", "Get"],
+                "lastActiveAction": ["Action", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "HistorySkillAbsenceTransition": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "skillIdentifier", "minAbsenceThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "skillIdentifier": ["String", "Get"],
+                "minAbsenceThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "GetCurrentTimeFromEnvironmentData": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env"],
+                "env": ["EnvironmentData", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+    "GetDeltaTimeFromEnvironmentData": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env"],
+                "env": ["EnvironmentData", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+
+    "IsEntityStatic": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["env", "entity", "staticThreshold"],
+                "env": ["EnvironmentData", "Get"],
+                "entity": ["PhysicalEntity", "Get"],
+                "staticThreshold": ["Number", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+
+    "CreateEmptySequence": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["seq"],
+                "seq": ["Sequence", "Modify"]
+            },
+            "procedure": {
+                "Assign<Sequence<T>>": {
+                    "who": "seq",
+                    "what": []
+                }
+            }
+        }
+    },
+    "AddToSequence": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["what", "where"],
+                "where": ["Sequence", ["Get", "Modify"]],
+                "what": ["T", "Get"]
+            }
+        }
+    },
+    "ClearSequence": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["seq"],
+                "seq": ["Sequence<T>", "Modify"]
+            }
+        }
+    },
+    "SequenceLength": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["s"],
+                "s": ["Sequence<T>", "Get"],
+                "res": ["Number", "Modify"]
+            }
+        }
+    },
+
+    "CreateEmptyContainer": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["container"],
+                "container": ["IndexContainer<T>", "Modify"]
+            },
+            "procedure": {
+                "Assign<IndexContainer<T>>": {
+                    "who": "container",
+                    "what": {}
+                }
+            }
+        }
+    },
+    "AddToContainer": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["which", "what"],
+                "which": ["IndexContainer<T>", ["Get", "Modify"]],
+                "what": ["T", "Get"]
+            }
+        }
+    },
+    "IsInContainer": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["which", "what"],
+                "which": ["IndexContainer<T>", "Get"],
+                "what": ["T", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "RemoveFromContainer": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["which", "what"],
+                "which": ["IndexContainer<T>", "Get"],
+                "what": ["T", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "ClearContainer": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "ValueDomain"
+                },
+                "arguments": ["which"],
+                "which": ["IndexContainer<T>", "Modify"]
+            }
+        }
+    },
+
+    "IsParameterSet": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["parameterCollection", "whichParameter"],
+                "whichParameter": ["String", "Get"],
+                "parameterCollection": ["ConceptParameters", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+    "IsParameterKnown": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["parameterCollection", "whichParameter"],
+                "whichParameter": ["String", "Get"],
+                "parameterCollection": ["ConceptParameters", "Get"],
+                "res": ["Boolean", "Modify"]
+            }
+        }
+    },
+
+    "CopyParameters": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "arguments": ["orig", "parametersToCopy"],
+                "orig": ["ConceptParameters", "Get"],
+                "parametersToCopy": ["Map<String, String>", "Get"],
+                "res": ["ConceptParameters", "Modify"]
+            }
+        }
+    },
+    "CreateAction": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Action"
+                },
+                "arguments": ["name"],
+                "name": ["String", "Get"],
+                "res": ["T", "Modify"]
+            }
+        }
+    },
+    "CreateSkill": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Skill"
+                },
+                "arguments": ["name"],
+                "name": ["String", "Get"],
+                "res": ["T", "Modify"]
+            }
+        }
+    },
+    "GetActionIdentifier": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Action"
+                },
+                "arguments": ["action", "parameters"],
+                "action": ["T", "Get"],
+                "parameters": ["ConceptParameters", "Get"],
+                "res": ["String", "Modify"]
+            }
+        }
+    },
+    "GetSkillIdentifier": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Skill"
+                },
+                "arguments": ["skill", "parameters"],
+                "skill": ["T", "Get"],
+                "parameters": ["ConceptParameters", "Get"],
+                "res": ["String", "Modify"]
+            }
+        }
+    },
+    "CreateActionParameters": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Action"
+                },
+                "arguments": ["action", "parameterMapping", "resultParameterName"],
+                "action": ["T", "Get"],
+                "parameterMapping": ["Map<String, String>", "Get"],
+                "resultParameterName": ["String", "Get"],
+                "defaults": {
+                    "resultParameterName": ""
+                }
+            }
+        }
+    },
+    "CreateSkillParameters": {
+        "direct_parents": ["Function"],
+        "data": {
+            "interface": {
+                "templateArguments": {
+                    "order": ["T"],
+                    "T": "Skill"
+                },
+                "arguments": ["skill", "parameterMapping", "resultParameterName"],
+                "skill": ["T", "Get"],
+                "parameterMapping": ["Map<String, String>", "Get"],
+                "resultParameterName": ["String", "Get"],
+                "defaults": {
+                    "resultParameterName": ""
+                }
+            }
+        }
+    }
+}

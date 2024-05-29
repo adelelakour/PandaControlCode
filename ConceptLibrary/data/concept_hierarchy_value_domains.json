@@ -1,0 +1,149 @@
+{
+    "ValueDomain": {
+        "direct_parents": ["Concept"],
+        "data": {}
+    },
+    "String": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "String.h"
+        }
+    },
+    "Number": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Number.h"
+        }
+    },
+    "Integer": {
+        "direct_parents": ["Number"],
+        "data": {
+            "header": "Number.h"
+        }
+    },
+    "Interval": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Interval.h"
+        }
+    },
+    "IntegerInterval": {
+        "direct_parents": ["Interval"],
+        "data": {
+            "header": "Interval.h"
+        }
+    },
+    "Duration": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Duration.h"
+        }
+    },
+    "Timestamp": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Timestamp.h"
+        }
+    },
+    "Boolean": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Boolean.h"
+        }
+    },
+    "Vector": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Vector.hpp",
+            "templateArguments": {
+                "order": ["T"],
+                "T": "Number"
+            }
+        }
+    },
+    "Quaternion": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Quaternion.h"
+        }
+    },
+    "Position": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Position.h"
+        }
+    },
+    "Orientation": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Orientation.h"
+        }
+    },
+    "Pose": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Pose.h"
+        }
+    },
+    "Map": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Map.hpp",
+            "templateArguments": {
+                "order": ["T1", "T2"],
+                "T1": "ValueDomain",
+                "T2": "ValueDomain"
+            }
+        }
+    },
+    "IndexContainer": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Map.hpp",
+            "templateArguments": {
+                "order": ["T"],
+                "T": "ValueDomain"
+            }
+        }
+    },
+    "Sequence": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Sequence.hpp",
+            "templateArguments": {
+                "order": ["T"],
+                "T": "ValueDomain"
+            }
+        }
+    },
+    "ConceptSet": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "ConceptSet.h"
+        }
+    },
+    "ConceptValue": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "ConceptValue.h"
+        }
+    },
+    "Location": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "Location.h"
+        }
+    },
+    "EnvironmentData": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "../EnvironmentData.h"
+        }
+    },
+    "ActionParameters": {
+        "direct_parents": ["ValueDomain"],
+        "data": {
+            "header": "../../actions/ActionParameters.hpp"
+        }
+    }
+}

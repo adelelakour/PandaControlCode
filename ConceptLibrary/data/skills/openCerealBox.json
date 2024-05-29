@@ -1,0 +1,133 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "CerealBox",
+        "openingSurface": "OpenableSurface",
+        "time": "Number"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            },
+                            {
+                                "SurfaceOf": {
+                                    "o": "o",
+                                    "s": "openingSurface"
+                                }
+                            },
+                            {
+                                "IsContact": {
+                                    "concept1": "g",
+                                    "concept2": "openingSurface",
+                                    "threshold": 0.05
+                                }
+                            },
+                            {
+                                "IsInContainer<String>": {
+                                    "what": "openingSurface.instanceName",
+                                    "which": "o.openSurfaces"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "time",
+                                    "what": "n:0"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": [
+        {
+            "RequireTrue": {
+                "what": [
+                    {
+                        "IsContact": {
+                            "concept1": "g",
+                            "concept2": "openingSurface",
+                            "threshold": 0.05
+                        }
+                    }
+                ]
+            }
+        }, {
+            "FunctionSequence": {
+                "fs": [
+                    {
+                        "Increment": {
+                            "arg1": "time",
+                            "arg2": {
+                                "GetDeltaTimeFromEnvironmentData": {
+                                    "env": "env"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }, {
+            "Return<Boolean>": {
+                "what": true
+            }
+        }
+    ],
+    "wasSuccessful": [
+        {
+            "RequireTrue": {
+                "what": [
+                    {
+                        "GreaterEqual": {
+                            "arg1": "time",
+                            "arg2": 3.2
+                        }
+                    }
+                ]
+            }
+        }, {
+            "Return<Boolean>": {
+                "what": true
+            }
+        }
+    ],
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RemoveFromContainer<String>": {
+                        "which": "o.openSurfaces",
+                        "what": "openingSurface.instanceName"
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]],
+    "actionAssociation": [
+        {
+            "Open": {
+                "o": "o"
+            }
+        }
+    ]
+}

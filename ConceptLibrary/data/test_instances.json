@@ -1,0 +1,68 @@
+{
+    "AgentInstance": {
+        "direct_parents": ["Agent"]
+    },
+    "ClosestPerson": {
+        "direct_parents": ["AgentInstance", "Human"],
+        "data": {
+            "propertyValues": {
+                "LeftHand": "ClosestPersonLeftHand",
+                "RightHand": "ClosestPersonRightHand"
+            }
+        }
+    },
+    "FrankaPanda": {
+        "direct_parents": ["AgentInstance", "FrankaRobot"],
+        "data": {
+            "propertyValues": {
+                "FrankaGripper": "FrankaPandaGripper",
+                "_FrankaGripper": "PrensiliaHand"
+            },
+            "abilities": [
+                "IdleAgent", "DetermineCurrentPose", "MoveRobotBodyCartesian", "MoveRobotBodyJointSpace",
+                "MoveRobotBodyJointSpaceSequence", "SeeThenMoveToObject", "GoToDynamicObject", "FollowObject",
+                "FollowObjectControllable", "FollowCartesianTrajectory", "FollowJointTrajectory"
+            ]
+        }
+    },
+
+    "GripperInstance": {
+        "direct_parents": ["Gripper"]
+    },
+    "ClosestPersonLeftHand": {
+        "direct_parents": ["GripperInstance", "LeftHand"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "ClosestPersonRightHand": {
+        "direct_parents": ["GripperInstance", "RightHand"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "FrankaPandaGripper": {
+        "direct_parents": ["GripperInstance", "FrankaGripper"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveGripper", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.2
+            }
+        }
+    },
+    "PrensiliaHand": {
+        "direct_parents": ["GripperInstance", "FrankaGripper"],
+        "data": {
+            "abilities": ["IdleGripper", "MoveHand", "SetObjectInGripper", "ClearObjectInGripper"],
+            "propertyValues": {
+                "interactionVolume": 0.25
+            }
+        }
+    }
+}

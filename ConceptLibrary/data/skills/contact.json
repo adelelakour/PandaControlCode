@@ -1,0 +1,56 @@
+{
+    "parameters": {
+        "e1": "PhysicalEntity",
+        "e2": "PhysicalEntity"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "EntitiesDifferent": {
+                                    "e1": "e1",
+                                    "e2": "e2"
+                                }
+                            },
+                            {
+                                "EntitiesSameType": {
+                                    "e1": "e1",
+                                    "e2": "e2"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "IsContact": {
+                                    "concept1": "e1",
+                                    "concept2": "e2"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    }
+}

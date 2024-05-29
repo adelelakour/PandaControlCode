@@ -1,0 +1,191 @@
+{
+    "Action": {
+        "direct_parents": ["Concept"],
+        "data": {}
+    },
+    "TransferContent": {
+        "direct_parents": ["Action"],
+        "data": {
+            "parameters": {
+                "o1": "Container",
+                "o2": "Container"
+            },
+            "effect": {
+
+            }
+        }
+    },
+    "ChangeLocation": {
+        "direct_parents": ["Action"],
+        "data": {
+            "parameters": {
+                "o": "Object",
+                "newLocation": "Location"
+            },
+            "effect": {
+
+            }
+        }
+    },
+    "Combine": {
+        "direct_parents": ["Action"],
+        "data": {}
+    },
+    "Split": {
+        "direct_parents": ["Action"],
+        "data": {}
+    },
+    "Open": {
+        "direct_parents": ["Action"],
+        "data": {
+            "parameters": {
+                "o": "OpenableObject"
+            }
+        }
+    },
+    "Close": {
+        "direct_parents": ["Action"],
+        "data": {
+            "parameters": {
+                "o": "OpenableObject"
+            }
+        }
+    },
+    "PerceiveEnvironment": {
+        "direct_parents": ["Action"],
+        "data": {
+            "parameters": {
+                "a": "Agent"
+            }
+        }
+    },
+
+    "Skill": {
+        "direct_parents": ["Concept"],
+        "data": {}
+    },
+    "Contact": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/contact.json"
+    },
+    "Touch": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/touch.json"
+    },
+    "Transport": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/transport.json"
+    },
+    "ContentTransfer": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/contentTransfer.json"
+    },
+    "Grasp": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/grasp.json"
+    },
+    "Release": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/release.json"
+    },
+    "Pour": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/pour.json"
+    },
+    "Pour1Agent2Grippers": {
+        "direct_parents": ["Pour"],
+        "data": "../data/skills/pour1Agent2Grippers.json"
+    },
+    "Pour2Agents": {
+        "direct_parents": ["Pour"],
+        "data": "../data/skills/pour2Agents.json"
+    },
+    "PourFromOpenableObject": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/pourFromOpenableObject.json"
+    },
+    "PourIntoOpenableObject": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/pourIntoOpenableObject.json"
+    },
+    "PourFromOpenableObjectIntoOpenableObject": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/pourFromOpenableObjectIntoOpenableObject.json"
+    },
+    "ScrewBottle": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/screwBottle.json"
+    },
+    "UnscrewBottle": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/unscrewBottle.json"
+    },
+    "OpenCerealBox": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/openCerealBox.json"
+    },
+    "CloseCerealBox": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/closeCerealBox.json"
+    },
+    "Unknown": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/unknown.json"
+    },
+    "Imitation": {
+        "direct_parents": ["Skill"],
+        "data": "../data/skills/imitation.json"
+    },
+
+    "MotionPrimitive": {
+        "direct_parents": ["Concept"]
+    },
+    "IdleGripper": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "SetObjectInGripper": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "ClearObjectInGripper": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "MoveGripper": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "MoveHand": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "IdleAgent": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "DetermineCurrentPose": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "MoveRobotBodyCartesian": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "MoveRobotBodyJointSpace": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "MoveRobotBodyJointSpaceSequence": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "SeeThenMoveToObject": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "GoToDynamicObject": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "FollowObject": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "FollowObjectControllable": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "FollowCartesianTrajectory": {
+        "direct_parents": ["MotionPrimitive"]
+    },
+    "FollowJointTrajectory": {
+        "direct_parents": ["MotionPrimitive"]
+    }
+}

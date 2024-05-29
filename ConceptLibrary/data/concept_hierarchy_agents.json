@@ -1,0 +1,57 @@
+{
+    "Agent": {
+        "direct_parents": ["PhysicalEntity"],
+        "data": {}
+    },
+    "Human": {
+        "direct_parents": ["Agent"],
+        "data": {
+            "properties": {
+                "LeftHand": "Gripper",
+                "RightHand": "Gripper"
+            }
+        }
+    },
+    "FrankaRobot": {
+        "direct_parents": ["Agent"],
+        "data": {
+            "properties": {
+                "FrankaGripper": "Gripper"
+            }
+        }
+    },
+
+    "Gripper": {
+        "direct_parents": ["PhysicalEntity"],
+        "data": {
+            "properties": {
+                "interactionVolume": "Number",
+                "default": {
+                    "interactionVolume": 0.2
+                }
+            }
+        }
+    },
+    "HumanHand": {
+        "direct_parents": ["Gripper"],
+        "data": {
+            "properties": {
+                "default": {
+                    "interactionVolume": 0.16
+                }
+            }
+        }
+    },
+    "LeftHand": {
+        "direct_parents": ["HumanHand"],
+        "data": {}
+    },
+    "RightHand": {
+        "direct_parents": ["HumanHand"],
+        "data": {}
+    },
+    "FrankaGripper": {
+        "direct_parents": ["Gripper"],
+        "data": {}
+    }
+}

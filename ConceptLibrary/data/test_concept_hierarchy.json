@@ -1,0 +1,24 @@
+{
+    "Concept": {
+        "direct_parents": [],
+        "data": {
+            "properties": {
+                "name": "String"
+            }
+        }
+    },
+    "PhysicalEntity": {
+        "direct_parents": ["Concept"],
+        "data": {
+            "properties": {
+                "instanceName": "String",
+                "lastDetected": "Timestamp",
+                "location": "Location"
+            }
+        }
+    },
+    "external": [
+        "../data/concept_hierarchy_agents.json",
+        "../data/concept_hierarchy_value_domains.json"
+    ]
+}

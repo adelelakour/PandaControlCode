@@ -1,0 +1,235 @@
+{
+    "parameters": {
+        "source": "Pourer",
+        "destination": "Container",
+        "sourceOutSurface": "PourerSurface",
+        "destinationInSurface": "PouringSurface",
+        "height": "Number",
+        "angle": "Number",
+        "direction": "Number",
+        "time": "Number"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "SurfaceOf": {
+                                    "s": "sourceOutSurface",
+                                    "o": "source",
+                                    "res": "res0"
+                                }
+                            },
+                            {
+                                "SurfaceOf": {
+                                    "s": "destinationInSurface",
+                                    "o": "destination",
+                                    "res": "res1"
+                                }
+                            },
+                            {
+                                "LessEqual": {
+                                    "arg1": 0.1,
+                                    "arg2": "source.fillDegree",
+                                    "res": "res2"
+                                }
+                            },
+                            {
+                                "LessEqual": {
+                                    "arg1": "destination.fillDegree",
+                                    "arg2": 0.9,
+                                    "res": "res3"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": ["res0", "res1", "res2", "res3"]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "Assign<Number>": {
+                        "who": "source.fillDegree",
+                        "what": 0
+                    }
+                },
+                {
+                    "Assign<Number>": {
+                        "who": "destination.fillDegree",
+                        "what": 1
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "normalAngle",
+                                    "what": {
+                                        "SurfaceNormalAngle": {
+                                            "surface1": "destinationInSurface",
+                                            "surface2": "sourceOutSurface"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "Facing": {
+                                    "facer": "sourceOutSurface",
+                                    "what": "destinationInSurface"
+                                }
+                            },
+                            {
+                                "LessEqual": {
+                                    "arg1": {
+                                        "DegToRad": {
+                                            "degValue": 90
+                                        }
+                                    },
+                                    "arg2": "normalAngle"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Vector<3>>": {
+                                    "who": "pouringVector",
+                                    "what": {
+                                        "DirectionSurfaceToSurface": {
+                                            "surface1": "sourceOutSurface",
+                                            "surface2": "destinationInSurface"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "Assign<Number>": {
+                                    "who": "two",
+                                    "what": 2
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "VectorComponentLargestInAbsValue<3>": {
+                                    "v": "pouringVector",
+                                    "i": "two"
+                                }
+                            },
+                            {
+                                "VectorComponentNegative<3>": {
+                                    "v": "pouringVector",
+                                    "i": "two"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "height",
+                                    "what": {
+                                        "Max": {
+                                            "arg1": "height",
+                                            "arg2": {
+                                                "Negative": {
+                                                    "arg": {
+                                                        "VectorComponent<3>": {
+                                                            "v": "pouringVector",
+                                                            "i": "two"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "Assign<Number>": {
+                                    "who": "angle",
+                                    "what": {
+                                        "Max": {
+                                            "arg1": "angle",
+                                            "arg2": "normalAngle"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "Assign<Number>": {
+                                    "who": "direction",
+                                    "what": {
+                                        "VectorDirectionRelativeToSurface": {
+                                            "surface": "destinationInSurface",
+                                            "vector": {
+                                                "SurfaceNormal": {
+                                                    "surface": "sourceOutSurface"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "Increment": {
+                                    "arg1": "time",
+                                    "arg2": {
+                                        "GetDeltaTimeFromEnvironmentData": {
+                                            "env": "env"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [],
+    "actionAssociation": [
+        {
+            "TransferContent": {
+                "o1": "source",
+                "o2": "destination"
+            }
+        }
+    ]
+}

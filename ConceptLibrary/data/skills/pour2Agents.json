@@ -1,0 +1,321 @@
+{
+    "parameters": {
+        "a2": "Agent",
+        "g2": "Gripper"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "a": "a",
+                                    "g": "g"
+                                }
+                            }, {
+                                "GripperOf": {
+                                    "a": "a2",
+                                    "g": "g2"
+                                }
+                            }, {
+                                "EntitiesDifferent": {
+                                    "e1": "a",
+                                    "e2": "a2"
+                                }
+                            }, {
+                                "Or": {
+                                    "arg1": {
+                                        "EntitiesDifferent": {
+                                            "e1": "from",
+                                            "e2": "into"
+                                        }
+                                    },
+                                    "arg2": {
+                                        "EntitiesDifferent": {
+                                            "e1": "pourerSurface",
+                                            "e2": "pouringSurface"
+                                        }
+                                    }
+                                }
+                            }, {
+                                "SurfaceOf": {
+                                    "s": "pourerSurface",
+                                    "o": "from"
+                                }
+                            }, {
+                                "SurfaceOf": {
+                                    "s": "pouringSurface",
+                                    "o": "into"
+                                }
+                            }, {
+                                "LessEqual": {
+                                    "arg1": 0.1,
+                                    "arg2": "from.fillDegree"
+                                }
+                            }, {
+                                "LessEqual": {
+                                    "arg1": "into.fillDegree",
+                                    "arg2": 0.9
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "time",
+                                    "what": 0
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "Assign<Number>": {
+                        "who": "from.fillDegree",
+                        "what": {
+                            "Max": {
+                                "arg1": 0,
+                                "arg2": {
+                                    "Subtract": {
+                                        "what": 0.1,
+                                        "from": "from.fillDegree"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, {
+                    "Assign<Number>": {
+                        "who": "into.fillDegree",
+                        "what": {
+                            "Min": {
+                                "arg1": 1,
+                                "arg2": {
+                                    "Add": {
+                                        "arg1": 0.1,
+                                        "arg2": "into.fillDegree"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "normalAngle",
+                                    "what": {
+                                        "SurfaceNormalAngle": {
+                                            "surface1": "pouringSurface",
+                                            "surface2": "pourerSurface"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "Facing": {
+                                    "facer": "pourerSurface",
+                                    "what": "pouringSurface"
+                                }
+                            }, {
+                                "LessEqual": {
+                                    "arg1": {
+                                        "DegToRad": {
+                                            "degValue": 90
+                                        }
+                                    },
+                                    "arg2": "normalAngle"
+                                }
+                            }, {
+                                "GripperTouchesObject": {
+                                    "gripper": "g",
+                                    "object": "from",
+                                    "threshold": 0.05
+                                }
+                            }, {
+                                "GripperTouchesObject": {
+                                    "gripper": "g2",
+                                    "object": "into",
+                                    "threshold": 0.05
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Vector<3>>": {
+                                    "who": "pouringVector",
+                                    "what": {
+                                        "DirectionSurfaceToSurface": {
+                                            "surface1": "pourerSurface",
+                                            "surface2": "pouringSurface"
+                                        }
+                                    }
+                                }
+                            }, {
+                                "Assign<Number>": {
+                                    "who": "two",
+                                    "what": 2
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "VectorComponentLargestInAbsValue<3>": {
+                                    "v": "pouringVector",
+                                    "i": "two"
+                                }
+                            }, {
+                                "VectorComponentNegative<3>": {
+                                    "v": "pouringVector",
+                                    "i": "two"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Number>": {
+                                    "who": "tmpNumber",
+                                    "what": {
+                                        "Negative": {
+                                            "arg": {
+                                                "VectorComponent<3>": {
+                                                    "v": "pouringVector",
+                                                    "i": "two"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }, {
+                                "Condition": {
+                                    "condition": {
+                                        "IsParameterSet": {
+                                            "parameterCollection": "parameters",
+                                            "whichParameter": "height"
+                                        }
+                                    },
+                                    "ifTrue": [
+                                        {
+                                            "Assign<Number>": {
+                                                "who": "height",
+                                                "what": {
+                                                    "Max": {
+                                                        "arg1": "height",
+                                                        "arg2": "tmpNumber"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "ifFalse": [
+                                        {
+                                            "Assign<Number>": {
+                                                "who": "height",
+                                                "what": "tmpNumber"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }, {
+                                "Condition": {
+                                    "condition": {
+                                        "IsParameterSet": {
+                                            "parameterCollection": "parameters",
+                                            "whichParameter": "angle"
+                                        }
+                                    },
+                                    "ifTrue": [
+                                        {
+                                            "Assign<Number>": {
+                                                "who": "angle",
+                                                "what": {
+                                                    "Max": {
+                                                        "arg1": "angle",
+                                                        "arg2": "normalAngle"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "ifFalse": [
+                                        {
+                                            "Assign<Number>": {
+                                                "who": "angle",
+                                                "what": "normalAngle"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }, {
+                                "Assign<Number>": {
+                                    "who": "direction",
+                                    "what": {
+                                        "VectorDirectionRelativeToSurface": {
+                                            "surface": "pouringSurface",
+                                            "vector": {
+                                                "SurfaceNormal": {
+                                                    "surface": "pourerSurface"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }, {
+                                "Increment": {
+                                    "arg1": "time",
+                                    "arg2": {
+                                        "GetDeltaTimeFromEnvironmentData": {
+                                            "env": "env"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "from"], ["a2", "g2", "into"]]
+}

@@ -1,0 +1,100 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "GraspableObject",
+        "fromLocation": "Location"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "CreateSkill<Touch>": {
+                                    "name": "s:touchSkill",
+                                    "res": "touchSkill"
+                                }
+                            },
+                            {
+                                "CreateSkillParameters<Touch>": {
+                                    "skill": "touchSkill",
+                                    "parameterMapping": {
+                                        "a": "a",
+                                        "g": "g",
+                                        "o": "o"
+                                    },
+                                    "resultParameterName": "touchSkillParameters"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "HistoryActionPresenceTransition": {
+                                    "env": "env",
+                                    "actionIdentifier": {
+                                        "GetSkillIdentifier<Touch>": {
+                                            "skill": "touchSkill",
+                                            "parameters": "touchSkillParameters"
+                                        }
+                                    },
+                                    "minPresenceThreshold": 9
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "SetLocation": {
+                        "entity": "o",
+                        "location": "g"
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]],
+    "actionAssociation": [
+        {
+            "ChangeLocation": {
+                "o": "o"
+            }
+        }
+    ]
+}

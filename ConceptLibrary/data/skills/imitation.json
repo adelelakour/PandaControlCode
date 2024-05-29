@@ -1,0 +1,62 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "Object",
+        "fromLocation": "Location",
+        "toLocation": "Location",
+        "p": "Sequence<Vector<3>>",
+        "q": "Sequence<Quaternion>",
+        "t": "Sequence<Number>",
+        "v": "Sequence<Vector<3>>",
+        "omega": "Sequence<Vector<3>>",
+        "acc": "Sequence<Vector<3>>",
+        "alpha": "Sequence<Vector<3>>"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "Assign<Location>": {
+                                    "who": "fromLocation",
+                                    "what": "o.location"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "Assign<Location>": {
+                        "who": "o.location",
+                        "what": "toLocation"
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]]
+}

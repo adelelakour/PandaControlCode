@@ -1,0 +1,1390 @@
+{
+    "parametersFor": "SkillDatabase",
+    "graspPlasticCupFixedExtract": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [-0.005, -0.05, -0.15]
+                    ]
+                },
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [-0.005, -0.025, -0.075]
+                    ]
+                },
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "MoveGripper",
+                "executor": "gripper",
+                "close": true,
+                "_width": 0.0,
+                "widthPercent": false,
+                "speed": 0.5,
+                "waitToFinish": true
+            }, {
+                "type": "SetObjectInGripper",
+                "executor": "gripper",
+                "object": "object"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": {
+                        "absoluteIndex": 1,
+                        "whosePoseIsIndexed": "agent"
+                    }
+                }
+            }
+        ],
+        "ifSuccessRelativePose": {
+            "index": 3,
+            "relativeFrom": "agent",
+            "relativeTo": "object",
+            "fixedPose": [
+                ["d", 180, [1, 0, 0]],
+                ["r", -0.1375, [1, 0, 0]],
+                [-0.005, -0.025, -0.075]
+            ]
+        }
+    },
+    "releasePlasticCupFixedPlace": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [-0.005, -0.05, -0.15]
+                    ]
+                }
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [-0.005, -0.025, -0.085]
+                    ]
+                }
+            }, {
+                "type": "MoveGripper",
+                "executor": "gripper",
+                "open": true,
+                "speed": 0.5,
+                "waitToFinish": false
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 250
+            }, {
+                "type": "ClearObjectInGripper",
+                "executor": "gripper"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [-0.005, -0.05, -0.15]
+                    ]
+                }
+            }
+        ]
+    },
+    "graspPlasticCupNoExtract": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, 0.075, 0.12]
+                    ]
+                }
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, 0.05, 0.065]
+                    ]
+                }
+            }, {
+                "type": "MoveGripper",
+                "executor": "gripper",
+                "close": true,
+                "_width": 0.0,
+                "widthPercent": false,
+                "speed": 0.5,
+                "waitToFinish": true
+            }, {
+                "type": "SetObjectInGripper",
+                "executor": "gripper",
+                "object": "object"
+            }
+        ],
+        "ifSuccessRelativePose": {
+            "index": -1,
+            "relativeFrom": "agent",
+            "relativeTo": "object"
+        }
+    },
+    "releasePlasticCupNoPlace": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, 0.05, 0.065]
+                    ]
+                }
+            }, {
+                "type": "MoveGripper",
+                "executor": "gripper",
+                "open": true,
+                "_width": 1.0,
+                "widthPercent": true,
+                "speed": 0.5,
+                "waitToFinish": false
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 250
+            }, {
+                "type": "ClearObjectInGripper",
+                "executor": "gripper"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, 0.075, 0.12]
+                    ]
+                }
+            }
+        ]
+    },
+    "pourIntoBowlWithPlasticCupMarginGrasp": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "from": "PlasticCupInstance",
+                "into": "BowlGreyIkeaInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0, 0, -0.21]
+                    ]
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            [0, 0, 0.01],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]],
+                            ["d", 30, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            [0, 0, 0.01],
+                            [0, 0, 0.01],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]],
+                            ["d", 30, ["paramX", "paramY", "paramZ"]],
+                            ["d", 45, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "FollowObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            [0, 0, 0.01],
+                            [0, 0, 0.01],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]],
+                            ["d", 30, ["paramX", "paramY", "paramZ"]],
+                            ["d", 45, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3,
+                "followTimeMSec": 2500
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            [0, 0, 0.01],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]],
+                            ["d", 30, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolutePoseParameters": {
+                        "parameters": [
+                            {
+                                "absoluteIndex": 1,
+                                "whosePoseIsIndexed": "agent"
+                            },
+                            "into"
+                        ],
+                        "parameterData": {
+                            "paramX": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tx",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramY": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "ty",
+                                    "parameters": [-1]
+                                }
+                            ],
+                            "paramZ": [
+                                {
+                                    "op": "deltaQ",
+                                    "parameters": [0, 1]
+                                },
+                                {
+                                    "op": "qAxisX",
+                                    "parameters": [-1]
+                                },
+                                {
+                                    "op": "tz",
+                                    "parameters": [-1]
+                                }
+                            ]
+                        }
+                    },
+                    "relativeToAbsolute": {
+                        "parameters": {
+                            "paramX": ["-inf", "inf"],
+                            "paramY": ["-inf", "inf"],
+                            "paramZ": ["-inf", "inf"]
+                        },
+                        "poseComposition": [
+                            ["d", 180, [1, 0, 0]],
+                            ["r", -0.1375, [1, 0, 0]],
+                            [0, 0, -0.19],
+                            [0, 0, -0.02],
+                            ["d", 15, ["paramX", "paramY", "paramZ"]]
+                        ]
+                    }
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "into",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0, 0, -0.17]
+                    ]
+                },
+                "ignoreObjects": ["from"],
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3
+            }
+        ]
+    },
+    "graspPlasticCupWithPrensiliaHandFixedExtract": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [0.01, 0.14, 0.25]
+                    ]
+                }
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [-0.01, 0.17, 0.06]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [31, 130, 128]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 1800
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [-0.02, 0.080, 0.062]
+                    ]
+                }
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 4500
+            }, {
+                "type": "SetObjectInGripper",
+                "executor": "gripper",
+                "object": "object"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": {
+                        "absoluteIndex": 1,
+                        "whosePoseIsIndexed": "agent"
+                    }
+                }
+            }
+        ],
+        "ifSuccessRelativePose": {
+            "index": 6,
+            "relativeFrom": "agent",
+            "relativeTo": "object",
+            "fixedPose": [
+                ["d", 120, [1, 1, -1]],
+                ["r", 0.82, [1, 0, 0]],
+                ["r", 0.05, [0, 1, 0]],
+                ["r", -0.375, [0, 0, 1]],
+                [-0.02, 0.080, 0.062]
+            ]
+        }
+    },
+    "releasePlasticCupWithPrensiliaHandFixedPlace": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [0.01, 0.14, 0.25]
+                    ]
+                }
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [0.005, 0.0755, 0.06]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [0, 128, 250]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 2000
+            }, {
+                "type": "ClearObjectInGripper",
+                "executor": "gripper"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 0.82, [1, 0, 0]],
+                        ["r", 0.05, [0, 1, 0]],
+                        ["r", -0.375, [0, 0, 1]],
+                        [0.01, 0.1, 0.25]
+                    ]
+                }
+            }
+        ]
+    },
+    "graspPlasticCupWithPrensiliaHandFixedExtract2": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [0, 1, -1]],
+                        ["d", 20, [0, 0, 1]],
+                        ["r", -0.7, [1, 0, 0]],
+                        ["d", -10, [0, 1, 0]],
+                        [-0.03, 0.017, 0.26]
+                    ]
+                }
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [0, 1, -1]],
+                        ["d", 20, [0, 0, 1]],
+                        ["r", -0.9, [1, 0, 0]],
+                        ["d", -10, [0, 1, 0]],
+                        [-0.075, 0.02, 0.16]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [4, 150, 128]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 7500
+            }, {
+                "type": "SetObjectInGripper",
+                "executor": "gripper",
+                "object": "object"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": {
+                        "absoluteIndex": 1,
+                        "whosePoseIsIndexed": "agent"
+                    }
+                }
+            }
+        ],
+        "ifSuccessRelativePose": {
+            "index": 4,
+            "relativeFrom": "agent",
+            "relativeTo": "object",
+            "fixedPose": [
+                ["d", 180, [0, 1, -1]],
+                ["d", 20, [0, 0, 1]],
+                ["r", -0.9, [1, 0, 0]],
+                ["d", -10, [0, 1, 0]],
+                [-0.075, 0.02, 0.16]
+            ]
+        }
+    },
+    "releasePlasticCupWithPrensiliaHandFixedPlace2": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "PlasticCupInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [0, 1, -1]],
+                        ["d", 20, [0, 0, 1]],
+                        ["r", -0.7, [1, 0, 0]],
+                        ["d", -10, [0, 1, 0]],
+                        [-0.03, 0.017, 0.26]
+                    ]
+                }
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [0, 1, -1]],
+                        ["d", 20, [0, 0, 1]],
+                        ["r", -0.7, [1, 0, 0]],
+                        [-0.035, 0.015, 0.16]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [0, 128, 250]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 2000
+            }, {
+                "type": "ClearObjectInGripper",
+                "executor": "gripper"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 180, [0, 1, -1]],
+                        ["d", 20, [0, 0, 1]],
+                        ["r", -0.62, [1, 0, 0]],
+                        [-0.035, 0.015, 0.264]
+                    ]
+                }
+            }
+        ]
+    },
+    "graspMilkCartonLidlInstanceWithPrensiliaHandFixedExtract": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "MilkCartonLidlInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 2.1725, [1, 0, 0]],
+                        ["r", -0.0375, [0, 1, 0]],
+                        ["r", 0.3775, [0, 0, 1]],
+                        [0.14, 0.075, 0.2575]
+                    ]
+                }
+            }, {
+                "type": "GoToDynamicObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 2.1725, [1, 0, 0]],
+                        ["r", -0.0375, [0, 1, 0]],
+                        ["r", 0.3775, [0, 0, 1]],
+                        [0.125, 0.035, 0.1275]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [4, 100, 128]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 700
+            }, {
+                "type": "SetObjectInGripper",
+                "executor": "gripper",
+                "object": "object"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": {
+                        "absoluteIndex": 1,
+                        "whosePoseIsIndexed": "agent"
+                    }
+                }
+            }
+        ],
+        "ifSuccessRelativePose": {
+            "index": 4,
+            "relativeFrom": "agent",
+            "relativeTo": "object",
+            "fixedPose": [
+                ["d", 120, [1, 1, -1]],
+                ["r", 2.1725, [1, 0, 0]],
+                ["r", -0.0375, [0, 1, 0]],
+                ["r", 0.3775, [0, 0, 1]],
+                [0.125, 0.035, 0.1275]
+            ]
+        }
+    },
+    "releaseMilkCartonLidlInstanceWithPrensiliaHandFixedPlace": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "PrensiliaHand",
+                "object": "MilkCartonLidlInstance"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 2.1725, [1, 0, 0]],
+                        ["r", -0.0375, [0, 1, 0]],
+                        ["r", 0.3775, [0, 0, 1]],
+                        [0.14, 0.075, 0.2575]
+                    ]
+                }
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 2.1725, [1, 0, 0]],
+                        ["r", -0.0375, [0, 1, 0]],
+                        ["r", 0.3775, [0, 0, 1]],
+                        [0.125, 0.035, 0.1275]
+                    ]
+                }
+            }, {
+                "type": "MoveHand",
+                "executor": "gripper",
+                "program": [0, 128, 250]
+            }, {
+                "type": "IdleAgent",
+                "executor": "agent",
+                "timeMSec": 2000
+            }, {
+                "type": "ClearObjectInGripper",
+                "executor": "gripper"
+            }, {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal",
+                    "relativeToAbsolute": [
+                        ["d", 120, [1, 1, -1]],
+                        ["r", 2.1725, [1, 0, 0]],
+                        ["r", -0.0375, [0, 1, 0]],
+                        ["r", 0.3775, [0, 0, 1]],
+                        [0.14, 0.075, 0.2575]
+                    ]
+                }
+            }
+        ]
+    },
+
+    "testFollowObject": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "gripper": "FrankaPandaGripper",
+                "object": "Container"
+            }
+        },
+        "sequence": [
+            {
+                "type": "FollowObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, -0.01, -0.17]
+                    ]
+                },
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "poseUpdateDelaySec": 0.3,
+                "followTimeMSec": 2500
+            }, {
+                "type": "FollowObject",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "object",
+                    "relativeToAbsolute": [
+                        ["d", 180, [1, 0, 0]],
+                        ["r", -0.1375, [1, 0, 0]],
+                        [0.005, -0.01, -0.17]
+                    ]
+                },
+                "waitTime": 15,
+                "poseStabilityWindowSize": 15,
+                "robotAtGoalThreshold": 0.05,
+                "poseUpdateDelaySec": 0.3,
+                "followTimeMSec": 5500
+            }
+        ]
+    },
+
+    "moveCartesian": {
+        "parameters": {
+            "necessary": {
+                "goal": "Pose"
+            },
+            "optional": {
+                "agent": "FrankaPanda"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyCartesian",
+                "executor": "agent",
+                "goal": {
+                    "absolute": "goal"
+                }
+            }
+        ]
+    },
+    "moveJointSpace": {
+        "parameters": {
+            "necessary": {
+                "goal": "VectorValue"
+            },
+            "optional": {
+                "agent": "FrankaPanda"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpace",
+                "executor": "agent",
+                "goal": "goal",
+                "goalInCartesianSpace": false
+            }
+        ]
+    },
+    "moveJointSpace_predefinedGoal": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "sequence": "Sequence<Number>"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpace",
+                "executor": "agent",
+                "goal": [0, -0.78539816339744830962, 0, -2.356194490192345, 0, 1.57079632679489661923, 0.78539816339744830962],
+                "goalInCartesianSpace": false
+            }, {
+                "type": "MoveRobotBodyJointSpace",
+                "executor": "agent",
+                "goal": [0.511721, 0.288652, -0.475317, -2.64565, -0.0351053, 2.9372, -0.173885],
+                "goalInCartesianSpace": false
+            }
+        ]
+    },
+    "moveJointSpaceSequence": {
+        "parameters": {
+            "necessary": {
+                "goal": "VectorValue"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "sequence": "Sequence<Number>"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpaceSequence",
+                "executor": "agent",
+                "goal": "goal",
+                "goalInCartesianSpace": false,
+                "jointOrder": "sequence"
+            }
+        ]
+    },
+    "moveJointSpaceSequence_predefinedGoal": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda",
+                "sequence": "Sequence<Number>"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpaceSequence",
+                "executor": "agent",
+                "goal": [0, -0.78539816339744830962, 0, -2.356194490192345, 0, 1.57079632679489661923, 0.78539816339744830962],
+                "goalInCartesianSpace": false,
+                "reverse": true
+            }
+        ]
+    },
+    "moveJointSpaceSequence_predefinedGoalAndSequence": {
+        "parameters": {
+            "optional": {
+                "agent": "FrankaPanda"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpaceSequence",
+                "executor": "agent",
+                "goal": [0.511721, 0.288652, -0.475317, -2.64565, -0.0351053, 2.9372, -0.173885],
+                "goalInCartesianSpace": false,
+                "jointOrder": [6, 3, 4, 5, 1, 0, 2]
+            }
+        ]
+    },
+    "moveJointSpaceSequenceReverse": {
+        "parameters": {
+            "necessary": {
+                "goal": "VectorValue"
+            },
+            "optional": {
+                "agent": "FrankaPanda",
+                "sequence": "Sequence<Number>"
+            }
+        },
+        "sequence": [
+            {
+                "type": "MoveRobotBodyJointSpaceSequence",
+                "executor": "agent",
+                "goal": "goal",
+                "goalInCartesianSpace": false,
+                "jointOrder": "sequence",
+                "reverse": true
+            }
+        ]
+    },
+    "followTrajectoryCartesian": {
+        "parameters": {
+            "necessary": {
+                "trajectory": "CartesianTrajectory"
+            },
+            "optional": {
+                "agent": "FrankaPanda"
+            }
+        },
+        "sequence": [
+            {
+                "type": "FollowCartesianTrajectory",
+                "executor": "agent",
+                "trajectory": "trajectory"
+            }
+        ]
+    },
+    "followTrajectoryJoint": {
+        "parameters": {
+            "necessary": {
+                "trajectory": "JointTrajectory<7>"
+            },
+            "optional": {
+                "agent": "FrankaPanda"
+            }
+        },
+        "sequence": [
+            {
+                "type": "FollowJointTrajectory",
+                "executor": "agent",
+                "trajectory": "trajectory"
+            }
+        ]
+    }
+}

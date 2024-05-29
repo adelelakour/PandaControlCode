@@ -1,0 +1,153 @@
+{
+    "parameters": {
+        "a": "Agent",
+        "g": "Gripper",
+        "o": "GraspableObject",
+        "toLocation": "Location"
+    },
+    "requirements": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "GripperOf": {
+                                    "g": "g",
+                                    "a": "a"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "check": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "FunctionSequence": {
+                        "fs": [
+                            {
+                                "CreateSkill<Touch>": {
+                                    "name": "s:touchSkill",
+                                    "res": "touchSkill"
+                                }
+                            }, {
+                                "CreateSkillParameters<Touch>": {
+                                    "skill": "touchSkill",
+                                    "parameterMapping": {
+                                        "a": "a",
+                                        "g": "g",
+                                        "o": "o"
+                                    },
+                                    "resultParameterName": "touchSkillParameters"
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "RequireTrue": {
+                        "what": [
+                            {
+                                "HistoryActionAbsenceTransition": {
+                                    "env": "env",
+                                    "actionIdentifier": {
+                                        "GetSkillIdentifier<Touch>": {
+                                            "skill": "touchSkill",
+                                            "parameters": "touchSkillParameters"
+                                        }
+                                    },
+                                    "minAbsenceThreshold": 9
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": true
+                    }
+                }
+            ]
+        }
+    },
+    "wasSuccessful": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "Assign<Boolean>": {
+                        "who": "res",
+                        "what": true
+                    }
+                },{
+                    "Condition": {
+                        "condition": {
+                            "IsParameterSet": {
+                                "parameterCollection": "parameters",
+                                "whichParameter": "toLocation"
+                            }
+                        },
+                        "ifTrue": [
+                            {
+                                "Assign<Boolean>": {
+                                    "who": "res",
+                                    "what": {
+                                        "IsAt": {
+                                            "where": "toLocation",
+                                            "what": "o"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "ifFalse": [
+                            {
+                                "Assign<Location>": {
+                                    "who": "toLocation",
+                                    "what": {
+                                        "DetermineLocationOfEntityInEnvironment": {
+                                            "instance": "o",
+                                            "env": "env",
+                                            "contactThreshold": 0.1,
+                                            "angleDegThreshold": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }, {
+                    "Return<Boolean>": {
+                        "what": "res"
+                    }
+                }
+            ]
+        }
+    },
+    "effects": {
+        "FunctionSequence": {
+            "fs": [
+                {
+                    "SetLocationFromLocation": {
+                        "entity": "o",
+                        "location": "toLocation"
+                    }
+                }
+            ]
+        }
+    },
+    "manipulations": [["a", "g", "o"]],
+    "actionAssociation": [
+        {
+            "ChangeLocation": {
+                "o": "o",
+                "newLocation": "toLocation"
+            }
+        }
+    ]
+}
